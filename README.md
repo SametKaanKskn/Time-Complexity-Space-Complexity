@@ -11,7 +11,7 @@ Lisans sürecimde Sayın Doç.Dr.Müge Özçevik'den aldığım bu ders ve paral
 - - Sınırlı bir süre içindeden kasıt, mesala network iletişiminde 4G'de 120 ms iken, 5G'de bu süre 4 ms'e düşmüş ve 6G'de ise 1 ms'in altında olması bekleniyor.
 - - Yeterli miktarda çabadan kastı ise hafızadan (memory) bahsediyor.Bunu da verimli olarak kullanmalıyız
 
-Algoritmanın temel özellikleri şunlardır:
+### Algoritmanın temel özellikleri şunlardır:
 
 - **Input (Giriş)**: Algoritmanın işlemesi için gereken başlangıç verileri veya girdilerdir.
 - **Output (Çıkış)**: Algoritmanın işlemesi sonucunda üretilen çıktı veya sonuçlardır.
@@ -21,7 +21,7 @@ Algoritmanın temel özellikleri şunlardır:
 - **Effectiveness (Verimlilik)**: Her bir adım ve sonuca ulaşan yolun verimli olması gereklidir. Algoritma, minimum kaynak kullanımı ile en iyi sonucu elde etmek için optimize edilmelidir.
 - **Generality (Genellenebilirlik)**: Algoritmanın, farklı girdi türleri veya problem boyutları için genellenebilir olması önemlidir. Yani, aynı algoritma farklı durumlar için uygulanabilir ve genel olarak geçerli olmalıdır.
 
-Algoritmalar ile ilgili iki temel konu bulunmaktadır:
+## Algoritmalar ile ilgili iki temel konu bulunmaktadır:
 
 - Algoritmalar nasıl tasarlanmalıdır ?
 - Algoritmanın verimliliği nasıl analiz edilmelidir ?
@@ -31,7 +31,34 @@ Algoritmalar ile ilgili iki temel konu bulunmaktadır:
 
   ![Algoritma Tasarımı ve Verimliliği Analizi Akış Şeması](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/fdfe4bee-2d1d-4c38-a502-d1572c38e46d)  ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/92ccb924-ff12-4d25-b86d-0648ef8d4569)
   
+- **Problem Anlayışı:**
+  - Öncelikle problemi tam olarak anlamaya çalışıyoruz.
 
+- **Hesaplama Detayları ve Yaklaşımlı Çözümler:**
+  - Hesaplama detaylarını gözden geçiriyoruz ve farklı yaklaşımları değerlendiriyoruz.
+  - Kullanılacak veri yapıları ve teknoloji dilleri üzerinde düşünüyoruz. Örneğin, Java'da ve C# gibi dillerde farklı ifadeler ve veri yapıları bulunabilir.
+  - Hangi veri yapısının daha verimli olacağını değerlendiriyoruz. Bellek kullanımı ve hesaplama hızı açısından hangi veri yapısının daha uygun olduğunu belirlemeye çalışıyoruz.
+  
+ - **Veri Yapısı Seçimi:**
+  - Kodlayacağımız işleme göre hangi veri yapısını kullanacağımızı belirliyoruz. Örneğin, matris yapısı mı, multi set mi, priority queue mu veya stack ve queue gibi kuyruklar mı kullanmalıyız?
+  - Ekleme ve çıkarma işlemleri gibi temel operasyonlar üzerinde düşünüyoruz. Bu işlemleri sıkça yapacaksak, veri yapısını bu operasyonlara uygun olarak seçmeliyiz.
+  
+- **Algoritma Seçimi:**
+  - Hangi algoritmanın kullanılacağına karar veriyoruz. Veri yapısını belirledikten sonra, bu veri yapısına uygun olarak hangi algoritmayı kullanacağımızı düşünüyoruz.
+  - Algoritmanın karmaşıklığına ve performansına dikkat ediyoruz. Büyük veri setleriyle çalışacaksak, algoritmanın zaman ve bellek kullanımı açısından verimli olmasına özen gösteriyoruz.
+
+- **Algoritma Tasarımı:**
+  - Tüm bu düşünceleri göz önünde bulundurarak algoritmayı tasarlıyoruz.
+
+- **Doğruluk Kontrolü:**
+  - Tasarladığımız algoritmanın doğruluğunu kontrol ediyoruz. Algoritmanın belirli kısıtlara uyup uymadığını ve doğru sonuçlar verip vermediğini kanıtlamaya çalışıyoruz.
+
+- **Verimlilik Analizi:**
+  - Algoritmanın verimliliğini analiz ediyoruz.
+  - Bellek kullanımını ve süre açısından makinelerin kabul edilebilir bir sürede sonuçları sunup sunmadığını değerlendiriyoruz.
+
+- **Hizmete Sunma:**
+  - En sonunda, istediğimiz dilde hizmete sunmak için algoritmayı hazır hale getiriyoruz.
 
 
 
