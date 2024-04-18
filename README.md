@@ -82,7 +82,7 @@ Algoritma tasarımında, hız ve verimlilik açısından en büyük etkiyi hangi
 
 Ram ile disk arasındaki git-gel , git-gel  , git-gel  bilgisayarın ömrünü daha da kısaltır.Gerçekten memory'mizde işlerimizi çözebilecek bir algoritmayı diske ihtiyaç duymadan üretebiliyorsak o zaman verimli bir algoritma inşa etmişiz demektir.Burada hem doğru sonuç bulunmalı hem de zamansal olarak verimli olmalı.Bazen işlerimizi halledemediğimiz durumlar olacak. Bu durumda diske başvuracağız. O zamanda tabi ki diskimizdeki değerleri kullanacağız.Disk kullanmak ne demek ? Dosyaya yazmak,dosyadan okumak demek.Yani Disk kullanımını minimize etmek, bilgisayarın ömrünü uzatmanın yanı sıra performansı da artırır.Dosya yazma ve okuma işlemlerini en aza indirerek, algoritmanın hızını artırabilir ve bilgisayarın ömrünü uzatabiliriz.
 
-### Algoritma Verimliliği Analizinin Temelleri
+## Algoritma Verimliliği Analizinin Temelleri
 
 Amaçlar:
   -  Correctness
@@ -94,9 +94,9 @@ Yaklaşımlar:
   -  Teorik Analiz (1.adım)
   -  Deneysel Analiz (2.adım)
 
-	• Öncelikle teorik yani matematiksel olarak hesaplayacağız ardından deneysel olarak test edeceğiz.10 defa üst üste çalıştırırken tekrarlar üst üste olmamalıdır.
+	 Öncelikle teorik yani matematiksel olarak hesaplayacağız ardından deneysel olarak test edeceğiz.10 defa üst üste çalıştırırken tekrarlar üst üste olmamalıdır.
 
- ### Algoritma Karmaşıklığı ( Complexity of Algorithm) 
+ ## Algoritma Karmaşıklığı ( Complexity of Algorithm) 
 
   -  Algoritma ne kadar iyi ?
   -  Diğer algoritmalarla karşılaştırıldığında karmaşıklığı nasıl değerlendirilebilir ?
@@ -126,23 +126,23 @@ Bir parti düzenlediğimizi ve her misafire özel bir hediye paketi hazırladı�
 
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/1dfcaefd-ed63-4c68-8888-20917c6b689c)
 
-	• Execution time for basic operation: Yani bir basit operasyonun çalışması için geçen süredir. C  (Constraint ) ile ifade edilir. Burada C(n) ifadesi, belirli bir işlemi n kez çağırmayı temsil eder. Örneğin, bir döngü içindeysek ve bu döngü n kez çalışıyorsa, bu, TIME COMPLEXITY'mizi belirleyen bir faktördür.
+ Execution time for basic operation: Yani bir basit operasyonun çalışması için geçen süredir. C  (Constraint ) ile ifade edilir. Burada C(n) ifadesi, belirli bir işlemi n kez çağırmayı temsil eder. Örneğin, bir döngü içindeysek ve bu döngü n kez çalışıyorsa, bu, TIME COMPLEXITY'mizi belirleyen bir faktördür.
 
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/322e7ca2-5e6c-4347-b532-fcbfee7abb1a)
 
-	1-  N elemanlı bir listenin bir elemanını aramak:   
+1- N elemanlı bir listenin bir elemanını aramak:   
 		a. Aramak benim için iki elemanı "karşılaştırıyorum" demektir. Hangisini arıyorsam o benim için basic operation olarak geçiyor.
 		b. Bunu kaç defa çağırıyorum ? Bütün diziyi gezeceği için N defa çağırıyorum. O halde (N) X (basic operation) =Time Complexity olacaktır.
 
-	2- İki matrisin çarpımı
+2- İki matrisin çarpımı
 		a. İki sayının "çarpımı" benim için basic operation 'dır. İki matrisin çarpımını nasıl yaparız ? İki boyutlu olduğu için iki tane iç içe for döngüsü ile çözebiliriz.
 		b. Bunu iki tane iç içe for döngüsü ile çarpmam bunlar matris boyutları oluyor.Bu sebeple mertebe N^2 olacaktır.
 
-	3- N sayısının asal olup olmaması 
+3- N sayısının asal olup olmaması 
 		a. "Bölüm" benim için basic operation
 		b.  N 'e kadar tüm elemanları bölmeye çalıştığım için  N kadar çağırıyorum.
 
-	4- Bir graph problemi yani en kısa yol problemi TSP olabilr vs.
+4- Bir graph problemi yani en kısa yol problemi TSP olabilr vs.
       Vertex 'in ziyaret edilmesi ya da bir kenarın üzerinden geçme ikisinden biri benim için basic operation 'dır.Yani bir edge'in üzerinden geçme zaman alan bir işlem veya bir vertexe gitme zaman alan bir işlemdir.İkisinden biri benim için en basit operasyonun süresini verir.
 
 ### Bazı Önemli Fonksiyonlar n ---> sonsuza giderken:
@@ -152,23 +152,23 @@ Bir parti düzenlediğimizi ve her misafire özel bir hediye paketi hazırladı�
 
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/2fb6f519-27db-4f6d-ae73-97570f4e7743)
 
-	- Best-case: Yaptığım en büyük basic operation "karşılaştırma" işlemidir.İki tane key'i karşılaştırıyorumdur.Bulamadıkça döngü ilerlemeye devam ediyor.Karşılaştırma işlemini en iyi ihtimalle ne kadar sürede bitirebilrim ?İlk elemanı bulup çıkabilirim veya hiç while döngüsüne girmeden direkt bulup çıkabilirim. O(1)
+- Algoritmanın Best-case: Yaptığım en büyük basic operation "karşılaştırma" işlemidir.İki tane key'i karşılaştırıyorumdur.Bulamadıkça döngü ilerlemeye devam ediyor.Karşılaştırma işlemini en iyi ihtimalle ne kadar sürede bitirebilrim ?İlk elemanı bulup çıkabilirim veya hiç while döngüsüne girmeden direkt bulup çıkabilirim. O(1)
 	
-	
-	- Worst-case: Dizinin sonuna kadar gidebilirim.Elemanı hiç bulamam ya da sonuncu eleman olarak bulabilrim. O zaman N defa dönebilirim. O(n)
- 	- Avarage-case: Bir dizinin ortasındaki eleman olabilirim.Dizinin ortasında bulabilirim. Dizinin ortası nedir ? N/2 'dir. Bu da T(n) olarak karşıma çıkar. O(n)
+- Worst-case: Dizinin sonuna kadar gidebilirim.Elemanı hiç bulamam ya da sonuncu eleman olarak bulabilrim. O zaman N defa dönebilirim. O(n)
+  
+- Avarage-case: Bir dizinin ortasındaki eleman olabilirim.Dizinin ortasında bulabilirim. Dizinin ortası nedir ? N/2 'dir. Bu da T(n) olarak karşıma çıkar. O(n)
 
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/5601b8cd-a779-4c69-9600-d2988e867d67)
 
-	1- ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/fd470bd2-bc70-4ada-b5fe-5b046fdf00c5)
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/fd470bd2-bc70-4ada-b5fe-5b046fdf00c5)
 
 Bu işaret Worst-case (Big-O) işaretidir.Yani f diye bir fonksiyon var. g(n) den daha fazla büyüyemeyen bir f(n) fonksiyonu var.Yani  g(n) daha karmaşık  anlamını taşıyor. Üst sınırım demek.
 
-	2- ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/07985271-ab0b-437c-a4fc-1f1766c1c938)
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/07985271-ab0b-437c-a4fc-1f1766c1c938)
 
 Bu işaret Average-case'in (Teta) işareti.
 
-	3- ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/475fb3e8-c753-40f3-b561-fa1788d0466c)
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/475fb3e8-c753-40f3-b561-fa1788d0466c)
 
 Bu işaret Best-case'in (omega) işaretidir. g(n) den daha hızlı olamıyorum anlamını taşıyor. f(n) öyle bir fonksiyon ki öyle bir algoritma ki  g(n) den daha hızlı olamıyor.  g(n) , f(n) 'den  daha hızlı olabilir ama  en kötü f(n) kadar olabilir. f(n) en iyi g(n) kadar olabilir. Buradaki best-case işaretinin içerisindeki g(n) alt sınırım demek.İlkinde ise üst sınırım demek.
 
@@ -176,15 +176,15 @@ Bu işaret Best-case'in (omega) işaretidir. g(n) den daha hızlı olamıyorum a
 
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/33907996-9e1e-43ea-8b8f-52bd909a639a)
 
-	- algoritmaları, girdi boyutu büyüdükçe çalışma sürelerinin veya alan gereksinimlerinin nasıl arttığına göre sınıflandırmak için kullanılan matematiksel bir gösterim olan Big O gösterimini açıklamaktadır.
+algoritmaları, girdi boyutu büyüdükçe çalışma sürelerinin veya alan gereksinimlerinin nasıl arttığına göre sınıflandırmak için kullanılan matematiksel bir gösterim olan Big O gösterimini açıklamaktadır.
 
-	- Dikey eksen çalışma süresini, yatay eksen ise girdi boyutunu(n) temsil etmektedir. Grafik üzerinde iki eğri vardır:
+Dikey eksen çalışma süresini, yatay eksen ise girdi boyutunu(n) temsil etmektedir. Grafik üzerinde iki eğri vardır:
 
-	1. g(n): Bu eğri, karşılaştırma için bir referans fonksiyonu olan g(n) fonksiyonunu temsil eder.
+1. g(n): Bu eğri, karşılaştırma için bir referans fonksiyonu olan g(n) fonksiyonunu temsil eder.
 
-	2- t(n): Bu eğri f(n) algoritmasının gerçek çalışma süresini temsil eder.
+2. t(n): Bu eğri f(n) algoritmasının gerçek çalışma süresini temsil eder.
 
-ÖNEMLİ : 	Burada en kötü cg(n) kadar sürede çalışabilirimi ifade ediyor.Dikeyde aşağı dogru hareket ise en iyi çalışabilecek süreleri belirtecektir.
+ÖNEMLİ : Burada en kötü cg(n) kadar sürede çalışabilirimi ifade ediyor.Dikeyde aşağı dogru hareket ise en iyi çalışabilecek süreleri belirtecektir.
 
 #### Üst Sınır
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/dbdb92e0-7b83-4260-b72c-4ade81fdbf37)
@@ -200,13 +200,13 @@ Sonuç olarak, işaretli ifade doğru olsa da, en sıkı ya da en uygun sınıfl
 
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/7b4df548-4a7e-4e08-a785-0f4e3cc3310a)
 
-	- Ben en hızlı cg(n) kadar olabilirim. Cg(n) den daha hızlı olamam anlamı taşıyor.Bundan daha az bir sürede çalışamam.En iyi çalışabileceğim süre  cg(n) dir. Ve dikeyde yukarı çıktıkça  cg(n) daha kötü sürelerde çalışacagımı belirtir bu grafik.Burada cg(n) alt sınır belirlemiştir.
+- Ben en hızlı cg(n) kadar olabilirim. Cg(n) den daha hızlı olamam anlamı taşıyor.Bundan daha az bir sürede çalışamam.En iyi çalışabileceğim süre  cg(n) dir. Ve dikeyde yukarı çıktıkça  cg(n) daha kötü sürelerde çalışacagımı belirtir bu grafik.Burada cg(n) alt sınır belirlemiştir.
 
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/c042bdb7-26b3-4d5a-aa1a-a73d7ede5d82)
 
-	- 3n+2 'ye best-case de omega(n) diyebiliyorum.
-	- Bir şey üzeri n her zaman daha büyüktür.
-  - 3n-1  omega(1)  demek yanlış değil çünkü   3n-1 'in alt sınırı omega(n)  dir.
+- 3n+2 'ye best-case de omega(n) diyebiliyorum.
+- Bir şey üzeri n her zaman daha büyüktür.
+- 3n-1  omega(1)  demek yanlış değil çünkü   3n-1 'in alt sınırı omega(n)  dir.
 
 
 # Asimptotik Gösterim Sıralaması
@@ -217,11 +217,11 @@ Sonuç olarak, işaretli ifade doğru olsa da, en sıkı ya da en uygun sınıfl
 
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/3a516750-4179-488d-a351-aaef6dc41590)
 
-	- Average-case de ise   c1g(n)  en kötü   c2g(n) ise en iyi bu olabiliyorum demektir. Bunlar arasında olduğumuzda g(n) kadar çalışabiliyorum demektir. En iyi de de en kötü de de.
+-  Average-case de ise   c1g(n)  en kötü   c2g(n) ise en iyi bu olabiliyorum demektir. Bunlar arasında olduğumuzda g(n) kadar çalışabiliyorum demektir. En iyi de de en kötü de de.
  
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/662bcb21-1308-4825-b892-5feacba8d38d)
 
-	- 3n+2=(1)  demek yanlış çünkü Omega(1)'den büyük ya da O(n^2) den küçük diye bir şey diyebiliriz. 1'dir demek yanlış. 
+-  3n+2=(1)  demek yanlış çünkü Omega(1)'den büyük ya da O(n^2) den küçük diye bir şey diyebiliriz. 1'dir demek yanlış. 
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/61c75ed6-19e5-4c1f-b88e-21f5912e0b8c)
 
 
@@ -230,14 +230,14 @@ Sonuç olarak, işaretli ifade doğru olsa da, en sıkı ya da en uygun sınıfl
 
 
 #### NOT: 
-	- Asimptotik gösterimdeki  üst sınır ne kadar sıkıdır yani bana ne kadar yakındır ?
-	-   n^2  ve 2^n    n 'ye göre en yakın  n^2 en yakın  2^n ise en uzaktır.Hangisini o zaman tercih etmeliyim ?  Her zaman bana en yakını olanı üst sınır olarak tercih etmeliyim.
+-	Asimptotik gösterimdeki  üst sınır ne kadar sıkıdır yani bana ne kadar yakındır ?
+-	n^2  ve 2^n    n 'ye göre en yakın  n^2 en yakın  2^n ise en uzaktır.Hangisini o zaman tercih etmeliyim ?  Her zaman bana en yakını olanı üst sınır olarak tercih etmeliyim.
 
 
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/28f18007-ffb7-403a-9211-60488c4b26f2)
 
-	- Kırmızının üstü bizim için algoritmalar için kabul edilebilir bir süre olarak geçmektedir."Kabul edilebilir verimlilik "olarak geçmektedir.Biz verimli bir algoritma inşa etmek için hep kırmızının üstünde kalmaya çalışmalıyız.
-	- Kırmızının altı ise np hard dediğimiz polynomial zamanda çözüme ulaşılamayacak süredir, kabul edilebilir süre olmayan problemler olarak geçiyor. Bu problemleri biz  kırmızı uca indirgemeye çalışacağız.Burada genellikle evrimsel algoritmalardan bahsedeceğiz.Genetik algoritmalardan bahsedecegiz.Paralel ve random çalışabildiğimiz hızlı ve kabul edilebilir makul cevaplar veren ama bazen en iyi cevabı veremeyen algoritmalar ama olabildiğince hızlı ve makul cevap veren günümüzde kullandığımız güzel algoritmaları kullanıyoruz. Complexity si kabul edilebilir olmayan problemleri kırmızı çizgisinin üstüne çekmeye çalıştığımız güzel algoritma çeşitleridir.Örneğin bin tane IoT cihazda paralel olarak küçük parçaları çalıştırarak  belirli zamana kadar indirgeyebilmeyi amaçlayacağız.Network dünyasında bu şekilde.
+-	Kırmızının üstü bizim için algoritmalar için kabul edilebilir bir süre olarak geçmektedir."Kabul edilebilir verimlilik "olarak geçmektedir.Biz verimli bir algoritma inşa etmek için hep kırmızının üstünde kalmaya çalışmalıyız.
+-	Kırmızının altı ise np hard dediğimiz polynomial zamanda çözüme ulaşılamayacak süredir, kabul edilebilir süre olmayan problemler olarak geçiyor. Bu problemleri biz  kırmızı uca indirgemeye çalışacağız.Burada genellikle evrimsel algoritmalardan bahsedeceğiz.Genetik algoritmalardan bahsedecegiz.Paralel ve random çalışabildiğimiz hızlı ve kabul edilebilir makul cevaplar veren ama bazen en iyi cevabı veremeyen algoritmalar ama olabildiğince hızlı ve makul cevap veren günümüzde kullandığımız güzel algoritmaları kullanıyoruz. Complexity si kabul edilebilir olmayan problemleri kırmızı çizgisinin üstüne çekmeye çalıştığımız güzel algoritma çeşitleridir.Örneğin bin tane IoT cihazda paralel olarak küçük parçaları çalıştırarak  belirli zamana kadar indirgeyebilmeyi amaçlayacağız.Network dünyasında bu şekilde.
 
 
 	- Bir framework icat ediliyor ve onu neden herkes kullanmaya başlıyor ?
