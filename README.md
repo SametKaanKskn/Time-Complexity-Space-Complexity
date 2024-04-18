@@ -1,6 +1,6 @@
 # Algoritma Analizi ve Tasarım Lisans Dersi
 
-Lisans sürecimde Sayın Doç.Dr.Müge Özçevik'den aldığım bu ders ve paralelinde götürdüğüm Anany Levitin'in "Introduction to the Design and Analysis of Algorithms" (2007) kitabından bu repoda açıklamalar bulacaksınız. Kodları bir challenge olarak görüp, olabildiğince herhangi bir araç kullanmadan pseudo code okuyarak kendim geliştirmeye ve üzerine koymayı hedefledim. Kodlara ait akış şemalarını (flow chart) ilk olarak boş bir kağıda çizip, ardından dijital ortamda oluşturmayı hedefledim.Bu repoda sadece sıralama algoritmaları,akış şemaları bulunmayacaktır.Hem derslerde hem kitapdan okurken çıkardığım hem de çeşitli videolardan da yararlanarak repoyu sorular sorarak çeşitlendirmeyi hedefliyorum.Ayrıca bu repoyu oluşturmamdaki diğer sebep ise ileride yapacağım işlerde bu soruları hatırlamak ve bilgisayar bilimlerinin en temeli olan bu bilimi unutmamakdır.
+Lisans sürecimde Sayın Doç.Dr.Müge Özçevik'den aldığım bu ders ve paralelinde götürdüğüm Anany Levitin'in "Introduction to the Design and Analysis of Algorithms" (2007) kitabından bu repoda açıklamalar bulacaksınız. Kodları bir challenge olarak görüp, olabildiğince herhangi bir araç kullanmadan pseudo code okuyarak kendim geliştirmeye ve üzerine koymayı hedefledim. Kodlara ait akış şemalarını (flow chart) ilk olarak boş bir kağıda çizip, ardından dijital ortamda oluşturmayı hedefledim.Bu repoda sadece sıralama algoritmaları,akış şemaları bulunmayacaktır.Hem derslerde hem kitapdan okurken çıkardığım hem de çeşitli videolardan da yararlanarak repoyu sorular sorarak çeşitlendirmeyi hedefliyorum.Ayrıca bu repoyu oluşturmamdaki diğer sebep ise ileride yapacağım işlerde bu soruları hatırlamak ve bilgisayar bilimlerinin en temeli olan bu bilimi unutmamakdır.Bu repoyu inceleyenler derslerden , Introduction to the Design and Analysis of Algorithms kitabından çıkardığım ve çeşitli videolardan çıkardığım sorulara mutlaka bakmalıdır.
 
 # İçindekiler
 
@@ -40,9 +40,9 @@ Lisans sürecimde Sayın Doç.Dr.Müge Özçevik'den aldığım bu ders ve paral
   - Hangi veri yapısının daha verimli olacağını değerlendiriyoruz. Bellek kullanımı ve hesaplama hızı açısından hangi veri yapısının daha uygun olduğunu belirlemeye çalışıyoruz.
   
  - **Veri Yapısı Seçimi:**
-  - Kodlayacağımız işleme göre hangi veri yapısını kullanacağımızı belirliyoruz. Örneğin, matris yapısı mı, multi set mi, priority queue mu veya stack ve queue gibi kuyruklar mı kullanmalıyız?
-  - Ekleme ve çıkarma işlemleri gibi temel operasyonlar üzerinde düşünüyoruz. Bu işlemleri sıkça yapacaksak, veri yapısını bu operasyonlara uygun olarak seçmeliyiz.
-  
+   - Kodlayacağımız işleme göre hangi veri yapısını kullanacağımızı belirliyoruz. Örneğin, matris yapısı mı, multi set mi, priority queue mu veya stack ve queue gibi kuyruklar mı kullanmalıyız?
+   - Ekleme ve çıkarma işlemleri gibi temel operasyonlar üzerinde düşünüyoruz. Bu işlemleri sıkça yapacaksak, veri yapısını bu operasyonlara uygun olarak seçmeliyiz.
+     
 - **Algoritma Seçimi:**
   - Hangi algoritmanın kullanılacağına karar veriyoruz. Veri yapısını belirledikten sonra, bu veri yapısına uygun olarak hangi algoritmayı kullanacağımızı düşünüyoruz.
   - Algoritmanın karmaşıklığına ve performansına dikkat ediyoruz. Büyük veri setleriyle çalışacaksak, algoritmanın zaman ve bellek kullanımı açısından verimli olmasına özen gösteriyoruz.
@@ -71,10 +71,14 @@ Lisans sürecimde Sayın Doç.Dr.Müge Özçevik'den aldığım bu ders ve paral
 Algoritmaların doğrudan 10 sayı için 20 sayı için nasıl çalıştığı değil,girdi sayısı ilerledikçe algoritmanın ne kadar hızlı değiştiği, ne kadar hızlı kötü duruma gittiğini öğrenmek önemlidir. Buna da Growth Rate diyoruz. Algoritmanın karmaşıklığındaki büyüme oranı diye ifade ediliyor.Buna Big-O da deniliyor.
 
 ### Soru 1:
-
 Algoritma tasarımında, hız ve verimlilik açısından en büyük etkiyi hangi faktör sağlar ve neden ?
 
 **Algoritma tasarımının hız ve verimlilik açısından en büyük etkiyi sağlayan faktör, algoritmanın temel yapısal karmaşıklığıdır.** .Diğer faktörler, örneğin _IDE'nin sağladığı hız, programlama dilinin bazı özellikleri veya işletim sistemi detayları_, algoritmanın performansını küçük nüanslarla arttırabilmektedir.
+
+### Soru 2:
+-  Bir algoritma, hem doğru sonuçları üretebiliyor hem de zamansal olarak verimli olabiliyorsa, neden disk kullanımını minimize etmek önemlidir?
+
+Ram ile disk arasındaki git-gel , git-gel  , git-gel  bilgisayarın ömrünü daha da kısaltır.Gerçekten memory'mizde işlerimizi çözebilecek bir algoritmayı diske ihtiyaç duymadan üretebiliyorsak o zaman verimli bir algoritma inşa etmişiz demektir.Burada hem doğru sonuç bulunmalı hem de zamansal olarak verimli olmalı.Bazen işlerimizi halledemediğimiz durumlar olacak. Bu durumda diske başvuracağız. O zamanda tabi ki diskimizdeki değerleri kullanacağız.Disk kullanmak ne demek ? Dosyaya yazmak,dosyadan okumak demek.Yani Disk kullanımını minimize etmek, bilgisayarın ömrünü uzatmanın yanı sıra performansı da artırır.Dosya yazma ve okuma işlemlerini en aza indirerek, algoritmanın hızını artırabilir ve bilgisayarın ömrünü uzatabiliriz.
 
 ### Selection Sort (Seçerek Sıralama)
 
