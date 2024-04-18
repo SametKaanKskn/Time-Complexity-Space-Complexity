@@ -29,7 +29,7 @@ Algoritmalar ile ilgili iki temel konu bulunmaktadır:
   • Bunlar zaten birbirlerine input ve output veren iki önemli soru
   Nasıl tasarlamalıyız ? Verimli tasarlamalıyız. Tasarladığım şey verimli mi ? Verimli değilse tekrara dönüp tasarımımı değiştirmeliyim.Birbirini sürekli besleyen sorulardır.
 
-  ![Algoritma Tasarımı ve Verimliliği Analizi Akış Şeması](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/fdfe4bee-2d1d-4c38-a502-d1572c38e46d)![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/92ccb924-ff12-4d25-b86d-0648ef8d4569)
+  ![Algoritma Tasarımı ve Verimliliği Analizi Akış Şeması](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/fdfe4bee-2d1d-4c38-a502-d1572c38e46d)  ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/92ccb924-ff12-4d25-b86d-0648ef8d4569)
   
 
 
