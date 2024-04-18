@@ -218,13 +218,8 @@ Sonuç olarak, işaretli ifade doğru olsa da, en sıkı ya da en uygun sınıfl
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/3a516750-4179-488d-a351-aaef6dc41590)
 
 -  Average-case de ise   c1g(n)  en kötü   c2g(n) ise en iyi bu olabiliyorum demektir. Bunlar arasında olduğumuzda g(n) kadar çalışabiliyorum demektir. En iyi de de en kötü de de.
- 
-![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/662bcb21-1308-4825-b892-5feacba8d38d)
 
 -  3n+2=(1)  demek yanlış çünkü Omega(1)'den büyük ya da O(n^2) den küçük diye bir şey diyebiliriz. 1'dir demek yanlış. 
-![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/61c75ed6-19e5-4c1f-b88e-21f5912e0b8c)
-
-
 
 ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/53915024-d523-45b8-8216-ea04ea85a525)
 
@@ -244,31 +239,3 @@ Sonuç olarak, işaretli ifade doğru olsa da, en sıkı ya da en uygun sınıfl
     İşte bazı veri yapılarını cache leyip veya düzgün bir şekilde memoryde tutup bizim erişimimizi kırmızı çizginin üzerine çıkarabiliyor.
 
 #### NOT : Non-Recursive  ve Recursive Konularına Girilmemiştir. ( Kendime bir hatırlatma olarak : Repoyu okuduğunda notlarına yeniden dön bak , uzun ama güzel işler var )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Selection Sort (Seçerek Sıralama)
-
-### Insertion Sort
