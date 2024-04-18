@@ -27,7 +27,10 @@ Algoritmalar ile ilgili iki temel konu bulunmaktadır:
 - Algoritmanın verimliliği nasıl analiz edilmelidir ?
 
   • Bunlar zaten birbirlerine input ve output veren iki önemli soru
-  • Nasıl tasarlamalıyız ? Verimli tasarlamalıyız. Tasarladığım şey verimli mi ? Verimli değilse tekrara dönüp tasarımımı değiştirmeliyim.Birbirini sürekli besleyen sorulardır.
+  Nasıl tasarlamalıyız ? Verimli tasarlamalıyız. Tasarladığım şey verimli mi ? Verimli değilse tekrara dönüp tasarımımı değiştirmeliyim.Birbirini sürekli besleyen sorulardır.
+
+  ![Algoritma Tasarımı ve Verimliliği Analizi Akış Şeması](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/fdfe4bee-2d1d-4c38-a502-d1572c38e46d)
+
 
 ### Complexity (Karmaşıklık)
 
