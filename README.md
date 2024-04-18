@@ -6,7 +6,10 @@ Lisans sürecimde Sayın Doç.Dr.Müge Özçevik'den aldığım bu ders ve paral
 
 ### Algoritma
 
-- **Algoritma**: Sonlu sayıda adımla bir hedefe ulaşmaya yarayan yöntem,metot,işler listesi denilebilir.
+- **Algoritma**: Algoritmalar,her biri açık bir anlama sahip olan ve sınırlı süre içerisinde yeterli miktarda çabayla gerçekleştirilebilen sınırlı bir talimat dizisi [Aho,Hopcroft,and Ulman]
+
+- - Sınırlı bir süre içindeden kasıt, mesala network iletişiminde 4G'de 120 ms iken, 5G'de bu süre 4 ms'e düşmüş ve 6G'de ise 1 ms'in altında olması bekleniyor.
+- - Yeterli miktarda çabadan kastı ise hafızadan (memory) bahsediyor.Bunu da verimli olarak kullanmalıyız
 
 Algoritmanın temel özellikleri şunlardır:
 
@@ -18,6 +21,14 @@ Algoritmanın temel özellikleri şunlardır:
 - **Effectiveness (Verimlilik)**: Her bir adım ve sonuca ulaşan yolun verimli olması gereklidir. Algoritma, minimum kaynak kullanımı ile en iyi sonucu elde etmek için optimize edilmelidir.
 - **Generality (Genellenebilirlik)**: Algoritmanın, farklı girdi türleri veya problem boyutları için genellenebilir olması önemlidir. Yani, aynı algoritma farklı durumlar için uygulanabilir ve genel olarak geçerli olmalıdır.
 
+Algoritmalar ile ilgili iki temel konu bulunmaktadır:
+
+- Algoritmalar nasıl tasarlanmalıdır ?
+- Algoritmanın verimliliği nasıl analiz edilmelidir ?
+
+  • Bunlar zaten birbirlerine input ve output veren iki önemli soru
+  • Nasıl tasarlamalıyız ? Verimli tasarlamalıyız. Tasarladığım şey verimli mi ? Verimli değilse tekrara dönüp tasarımımı değiştirmeliyim.Birbirini sürekli besleyen sorulardır.
+
 ### Complexity (Karmaşıklık)
 
 - Şayet girdi küçükse hafıza ve zaman karmaşıklıkları çok önemli değildir.Algoritmaların karşılaştırılması için algoritmaların zaman ve hafıza karmaşıklıklarındaki büyüme karşılaştırılır.
@@ -26,11 +37,11 @@ Algoritmanın temel özellikleri şunlardır:
 
 Algoritmaların doğrudan 10 sayı için 20 sayı için nasıl çalıştığı değil,girdi sayısı ilerledikçe algoritmanın ne kadar hızlı değiştiği, ne kadar hızlı kötü duruma gittiğini öğrenmek önemlidir. Buna da Growth Rate diyoruz. Algoritmanın karmaşıklığındaki büyüme oranı diye ifade ediliyor.Buna Big-O da deniliyor.
 
-### Soru 1: Soru:
+### Soru 1:
 
 Algoritma tasarımında, hız ve verimlilik açısından en büyük etkiyi hangi faktör sağlar ve neden ?
 
-**Algoritma tasarımının hız ve verimlilik açısından en büyük etkiyi sağlayan faktör, algoritmanın temel yapısal karmaşıklığıdır.** .Diğer faktörler, örneğin _IDE'nin sağladığı hız, programlama dilinin bazı özellikleri veya işletim sistemi detayları_, algoritmanın performansını küçük nüanslarla artırabilir.
+**Algoritma tasarımının hız ve verimlilik açısından en büyük etkiyi sağlayan faktör, algoritmanın temel yapısal karmaşıklığıdır.** .Diğer faktörler, örneğin _IDE'nin sağladığı hız, programlama dilinin bazı özellikleri veya işletim sistemi detayları_, algoritmanın performansını küçük nüanslarla arttırabilmektedir.
 
 ### Selection Sort (Seçerek Sıralama)
 
