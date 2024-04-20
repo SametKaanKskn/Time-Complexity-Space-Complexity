@@ -280,7 +280,7 @@ Best case:   O(n^2)
 Worst case:  O(n^2)
 Average case:  O(n^2) dir.   
 
-Best case ve worst case'in farkı sıralı olma ya da olmama durumudur.
+Best case ve worst case'in farkı sıralı olma ya da olmama durumudur.Bu algoritmanın karmaşıklığı O(n2) ‘dir çünkü her adımda n sayı işlenmekte ve bu işlem n kere tekrar edilmektedir.
 
 ![Selection Sort](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/72442c80-229c-4183-aaec-0f26843097b3)
 
@@ -303,5 +303,5 @@ Best case ve worst case'in farkı sıralı olma ya da olmama durumudur.
 
 
 
-Bu algoritmanın karmaşıklığı O(n2) ‘dir çünkü her adımda n sayı işlenmekte ve bu işlem n kere tekrar edilmektedir.
+
 
