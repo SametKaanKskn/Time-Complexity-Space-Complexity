@@ -1,4 +1,4 @@
-# Algoritma Analizi ve Tasarım Lisans Dersi
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/8702ea6d-6f96-4dac-a633-3dc469abbce6)# Algoritma Analizi ve Tasarım Lisans Dersi
 
 Lisans, yüksek lisans ve doktorası İTÜ Bilgisayar Mühendisliği olan Sayın Doç. Dr. Müge Özçevik'ten aldığım bu ders ve paralelinde götürdüğüm Anany Levitin'in "Introduction to the Design and Analysis of Algorithms" (2007) kitabından bu repoda açıklamalar bulacaksınız. Kodları bir challenge olarak görüp, olabildiğince herhangi bir araç kullanmadan pseudo code okuyarak kendim geliştirmeye ve üzerine koymayı hedefledim. Kodlara ait akış şemalarını (flow chart) ilk olarak boş bir kağıda çizip, ardından dijital ortamda oluşturmayı hedefledim.Bu repoda sadece sıralama algoritmaları,akış şemaları bulunmayacaktır.Hem derslerde hem kitapdan okurken çıkardığım hem de çeşitli videolardan da yararlanarak repoyu sorular sorarak çeşitlendirmeyi hedefliyorum.Ayrıca bu repoyu oluşturmamdaki diğer sebep ise ileride yapacağım işlerde bu soruları hatırlamak ve bilgisayar bilimlerinin en temeli olan bu bilimi unutmamakdır.Bu repoyu inceleyenler, derslerden Introduction to the Design and Analysis of Algorithms kitabından çıkardığım ve çeşitli videolardan çıkardığım sorulara mutlaka bakmalıdır.
 
@@ -239,3 +239,69 @@ Sonuç olarak, işaretli ifade doğru olsa da, en sıkı ya da en uygun sınıfl
     İşte bazı veri yapılarını cache leyip veya düzgün bir şekilde memoryde tutup bizim erişimimizi kırmızı çizginin üzerine çıkarabiliyor.
 
 #### NOT : Non-Recursive  ve Recursive Konularına Girilmemiştir. ( Kendime bir hatırlatma olarak : Repoyu okuduğunda notlarına yeniden dön bak , uzun ama güzel işler var )
+
+## Selection Sort (Seçerek Sıralama)
+
+Verinin hafızada sıralı tutulması için geliştirilen sıralama algoritmalarından (sorting algorithms) bir tanesidir. Basitçe her adımda dizideki en küçük sayının nerede olduğu bulunur. Bu sayı ile dizinin başındaki sayı yer değiştirilerek en küçük sayılar seçilerek başa atılmış olur.Yani bu algoritma, tekrar tekrar en küçük veya en büyük elemanı seçerek işlem yapmaya yarayacaktır. Aşağıda, küçükten büyüğe sıralama yapmak için kullanılan adımlar sıralanmıştır:
+
+Tarama (Scan): Liste baştan sona taranır ve en küçük eleman bulunur.
+Değiştirme (Swap): Bulunan en küçük eleman ile listenin ilk elemanı yer değiştirilir. Bu işlem, en küçük elemanın doğru sıraya yerleştirilmesini sağlayacaktır.
+Kalan Listeyi Tara: İlk eleman hariç kalan liste (n-1 eleman) tekrar taranır ve bu yeni alt kümeye göre en küçük eleman bulunur.
+Swap Yapma: Bulunan yeni en küçük eleman, listenin ikinci elemanı ile yer değiştirilir.
+Tekrarla: Her adımda, zaten sıralanmış olan elemanlar dışında kalan daha küçük bir alt küme üzerinde işlem yapılır. Bu, listenin her bir elemanı doğru pozisyona yerleştirilene kadar devam eder.
+
+--->  i. Adımda, listenin kalan n-i  adet elemanın en küçüğü bulunur ve en küçük eleman  A[i]  ile yer değiştirilir.
+---> n-1 adet döngü sonrasında, algoritma sonlanır
+
+Yani sürekli dizide en küçüğü bulup  (n- i). Eleman yerine yerleştiriyorsun.Swap ediyorsun.Sonra geriye kalan listeyi tarıyorsun en küçüğü buluyorsun final position'a yerleştiriyorsun.Swap ediyorsun.
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/74b53ce9-aa24-4275-ae1a-42ce76b38fad)
+Elimde bu şekilde bir dizi var.Bütün diziyi taradım.En küçüğü 17. Bunu 1.pozisyondaki elemanla swap ediyorum.
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/23c73d12-8fd7-45c8-85ba-bf3698b22fcb)
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/f7bd2eb0-b41a-430e-9fb4-7d7d9a887558)
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/253835a0-6ad0-453b-a376-1bec8c9fe0e5)
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/2d1ccf48-7b80-4123-83cd-19d439bc177d)
+
+Pseudo code'ları incelerken dikkat etmemiz gereken nokta  küçükten büyüğe mi yoksa büyükten küçüge mi sıralanmış bakılmalıdır.
+
+Buradaki Basic operation:  Swap işlemi ya da karşılaştırma işlemi olarak düşünebiliriz.Genellikle iç içe döngü olduğu için karşılaştırma işlemi en basit operasyon alarız.Ve buna göre karmaşıklık analizi yaparız.
+
+![Ekran görüntüsü 2024-04-20 015038](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/90b80998-e386-469d-a29c-c56cc7ffe865)
+
+Sorting için  n^2 mertebe çok da olumlu değildir.Fakat insertion sort bu şekilde çalışıyor.
+
+Karmaşıklık Analizi:
+- n adet yer değiştirme operasyonu  yani Basit Operation: Swap ----> O(n)
+- n-1 adet bu işlemin tekrarı vardır yani Basit Operation: Karşılaştırma ----> O(n^2)
+
+Best case:   O(n^2)
+Worst case:  O(n^2)
+Average case:  O(n^2) dir.   
+
+Best case ve worst case'in farkı sıralı olma ya da olmama durumudur.
+
+![Selection Sort](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/72442c80-229c-4183-aaec-0f26843097b3)
+
+
+
+
+## Insertion Sort 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bu algoritmanın karmaşıklığı O(n2) ‘dir çünkü her adımda n sayı işlenmekte ve bu işlem n kere tekrar edilmektedir.
+
