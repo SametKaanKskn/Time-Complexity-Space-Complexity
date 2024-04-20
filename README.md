@@ -288,9 +288,9 @@ Yazdığım kodda ve buradan da anlaşılacağı üzere ;
 - Dizide iki tane işaretçi belirledim.Amacım bu iki işaretçinin gösterdiği değerleri kıyaslamak
 - En içteki döngü en dıştaki döngüden daha hızlı ilerleyeceği için en dış döngümde ilk olarak 1.işaretçim ile dizinin ilk elemanının değerini min değişkenine atıyorum
 - En iç döngümde ise  j diye sürekli dizinin üzerinde gezecek farklı bir işaretçim olacak.
-- 1. işaretçim(min) 'deki değer > 2. işaretçim(j) 'deki değerden büyükse  j değerimi (dikkat et işaretçimi değil değerini) min'e atıyorum (min=j)
+- Birinci işaretçim(min) 'deki değer > 2. işaretçim(j) 'deki değerden büyükse  j değerimi (dikkat et işaretçimi değil değerini) min'e atıyorum (min=j)
 - Böylelikle  dizideki minimum değer bir değişkende(min)  tutulacaktır.
-- 2. işaretçim bu şekilde sabit kalan 1.işaretçim (min) deki değerle dizinin sonuna kadar giderek karşılaştırılır ve dizideki en küçük elemanı bulmayı amaçlar
+- İkinci işaretçim bu şekilde sabit kalan 1.işaretçim (min) deki değerle dizinin sonuna kadar giderek karşılaştırılır ve dizideki en küçük elemanı bulmayı amaçlar
 - Böylelikle dizide bulunan en küçük eleman ile ilgili indekdeki elemanlar swap edilir.
      
 
