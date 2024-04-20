@@ -1,12 +1,11 @@
 public class InsertionSort {
 
     public static int[] insertionSort(int[] A, int n) {
-        /*
-         * İlk eleman atlanacak şekilde de yapılabilirdi.Çünkü tek başına sıralı bir
-         * durumdadır
-         * // İkinci elemandan başlayarak dizi boyunca döngü de yapılabilirdi ki
-         * processing time açısından daha avantajlı olur
-         */
+
+        // İlk eleman atlanacak şekilde de yapılabilirdi.Çünkü tek başına olması sıralı
+        // bir durumdadır.Processing time açısından daha avantajlı olur
+        // İkinci elemandan başlayarak dizi boyunca döngü de yapılabilirdi ki bunun
+        // yapılış şeklini de aşağıya düzenleyerek ekledim
 
         for (int j = 0; j < n - 1; j++) {
             int key = A[j + 1]; // Araya eklenecek değerim ve 1. işaretçim bunun üzerinde olacak
