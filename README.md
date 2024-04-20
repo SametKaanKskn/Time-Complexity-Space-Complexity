@@ -284,7 +284,15 @@ Best case ve worst case'in farkı sıralı olma ya da olmama durumudur.Bu algori
 
 ![Selection Sort](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/72442c80-229c-4183-aaec-0f26843097b3)
 
-
+Yazdığım kodda ve buradan da anlaşılacağı üzere ;
+- Dizide iki tane işaretçi belirledim.Amacım bu iki işaretçinin gösterdiği değerleri kıyaslamak
+- En içteki döngü en dıştaki döngüden daha hızlı ilerleyeceği için en dış döngümde ilk olarak 1.işaretçim ile dizinin ilk elemanının değerini min değişkenine atıyorum
+- En iç döngümde ise  j diye sürekli dizinin üzerinde gezecek farklı bir işaretçim olacak.
+- 1. işaretçim(min) 'deki değer > 2. işaretçim(j) 'deki değerden büyükse  j değerimi (dikkat et işaretçimi değil değerini) min'e atıyorum (min=j)
+- Böylelikle  dizideki minimum değer bir değişkende(min)  tutulacaktır.
+- 2. işaretçim bu şekilde sabit kalan 1.işaretçim (min) deki değerle dizinin sonuna kadar giderek karşılaştırılır ve dizideki en küçük elemanı bulmayı amaçlar
+- Böylelikle dizide bulunan en küçük eleman ile ilgili indekdeki elemanlar swap edilir.
+     
 
 
 ## Insertion Sort 
