@@ -17,7 +17,7 @@ public class SelectionSort {
                     min = j;
                 }
 
-            } // sıralanmış bir dizi olsa da swap işlemi yine de yapılacak (extra cost)
+            } // sıralanmış bir dizi olsa da swap işlemi yine de yapılacak (extra cost).
             temp = A[i]; // swap işlemi yapıldı.
             A[i] = A[min];
             A[min] = temp;
