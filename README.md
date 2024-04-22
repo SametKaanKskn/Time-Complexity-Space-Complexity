@@ -352,21 +352,24 @@ Görüldüğü üzere  ortalama değer zamanını (max+min)/2 değerine yakın v
 
 - Selection sort garanti best case  n^2 de çalışıyor ama insertion sortda best case'in avantajı vardır.Sıralı olduğu zaman while döngüsüne girmiyor.Bu sebeple while döngüsü seçilmiştir zaten.Neden iç içie for loop veya  neden bir for  bir while tercih ediyim ki  sorusunu bügüne kadar düşündük mü ?  İşte farkı bu iki tane sorting algoritması eğer sıralı bir dizi geliyorsa tek  n loop'unda bitiriyor. O(n) ile bitirip çıkıyor.While loop'una girmiyor
 
-Selection sort, best case senaryosunda bile O(n^2) zaman karmaşıklığına sahipken, Insertion sort'ta best case O(n) avantajı  vardır. İkinci durumda, dizi zaten sıralı olduğunda, while döngüsüne girmediği için ek işleme gerek kalmaz. Bu nedenle, Insertion sort'un iç mekanizması, veri zaten sıralıysa optimal bir şekilde çalışır.Yani sıralı olduğu zaman while döngüsüne girmiyor.Zaten bu sebeple while döngüsü seçilmiştir.Neden " iç içe  for loop" veya  neden " bir for  bir while " tercih ediyim ki  sorusunu bügüne kadar düşündük mü ?  İşte farkı bu iki tane sorting algoritması eğer sıralı bir dizi geliyorsa " tek  n loop'unda "  bitiriyor. O(n) ile bitirip çıkıyor.While loop'una girmiyor.
-
-
-Bu nedenle, insertion sort, sıralı veya neredeyse sıralı diziler için tercih edilen bir algoritmadır. Bu durum, algoritmanın sıralı bir dizi ile karşılaştığında, sadece tek bir geçişle 
+- Selection sort, best case senaryosunda bile O(n^2) zaman karmaşıklığına sahipken, Insertion sort'ta best case O(n) avantajı  vardır. İkinci durumda, dizi zaten sıralı olduğunda, while döngüsüne girmediği için ek işleme gerek kalmaz. Bu nedenle, Insertion sort'un iç mekanizması, veri zaten sıralıysa optimal bir şekilde çalışır.Yani sıralı olduğu zaman while döngüsüne girmiyor.Zaten bu sebeple while döngüsü seçilmiştir.Neden " iç içe  for loop" veya  neden " bir for  bir while " tercih ediyim ki  sorusunu bügüne kadar düşündük mü ?  İşte farkı bu iki tane sorting algoritması eğer sıralı bir dizi geliyorsa " tek  n loop'unda "  bitiriyor. O(n) ile bitirip çıkıyor.While loop'una girmiyor.Bu nedenle, insertion sort, sıralı veya neredeyse sıralı diziler için tercih edilen bir algoritmadır. Bu durum, algoritmanın sıralı bir dizi ile karşılaştığında, sadece tek bir geçişle 
 O(n) zaman karmaşıklığı ile çalışmasına olanak sağlar. While döngüsüne girmediği için zaman kazanır, bu da Insertion sort'un temel avantajlarından biridir.
 
 Ancak en kötü durum için, for döngüsü 𝑛 kere çalışacak, while döngüsü de 𝑛 kere çalışacak ve swap işlemleri yapılacaktır. Bu durum, Selection sort algoritmasına göre daha fazla swap işlemi yapılmasına neden olur, ki bu da işlem süresini (processing time) artırır. En kötü durumda, Selection Sort'un karmaşıklığı O(n^2) olmasına rağmen, deneysel analizler, Insertion sort'un bu durumda daha uzun sürebileceğini gösterir.Insertion sort'un en kötü senaryosu, sıralama işlemini küçükten büyüğe yaparken, giriş verisinin büyükten küçüğe sıralı olması durumudur. Bu durumda, en kötü vakayı yaşayacağızdır.
 
 Selection sort, iki iç içe geçmiş for döngüsü kullanılarak inşa edilir ve her döngüde sadece bir swap işlemi yapılır. Öte yandan, Insertion sort'ta daha fazla swap işlemi olabilir.
-Selection sort ---> Basic Operation : Karşılaştırma iken
-Insertion sort ---> Basic Operation : Swap işlemidir.
+
+- Selection sort ---> Basic Operation : Karşılaştırma iken
+- Insertion sort ---> Basic Operation : Swap işlemidir.
 
 Bu iki algoritmanın karmaşıklık analizleri her ne kadar O(n^2) olarak görünse de, implementasyon sürecinde aralarında belirgin bir fark vardır. Insertion sort, karşılaştırmalı olarak daha fazla swap işlemi gerektirir, bu da onu Selection sort'a göre daha yavaş ve daha az verimli kılar.
 
 İkisinin arasındaki fark, karmaşık giriş kümeleriyle çalışıldığında daha da belirginleşir. Insertion sort'ta, her döngüde bir swap işlemi gerçekleşebilir. Bu, döngü sayısı arttıkça işlem süresinin de artmasına yol açar. Selection sort'ta ise her döngüde sadece bir swap işlemi vardır. Sonuç olarak, implementasyon sırasında, Selection sort genellikle daha verimliyken, Insertion sort daha fazla swap işlemi nedeniyle daha yavaş çalışabilir.
+
+Insertion Sort:
+- Best case: O(N)
+- Average case: O(N^2)  
+- Worst case: O(N^2)
 
 
 
