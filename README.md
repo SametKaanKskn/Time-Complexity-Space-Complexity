@@ -292,10 +292,82 @@ Yazdığım kodda ve buradan da anlaşılacağı üzere ;
 - Böylelikle  dizideki minimum değer bir değişkende(min)  tutulacaktır.
 - İkinci işaretçim bu şekilde sabit kalan 1.işaretçim (min) deki değerle dizinin sonuna kadar giderek karşılaştırılır ve dizideki en küçük elemanı bulmayı amaçlar
 - Böylelikle dizide bulunan en küçük eleman ile ilgili indekdeki elemanlar swap edilir.
+- Tüm süreç gerçekleştikten sonra elimdeki veri listem küçükten büyüğe sıralanmış bir şekilde olacaktır.
      
 
 
 ## Insertion Sort 
+
+Eklemeli sıralama veya araya yerleştirilerek sıralama, programlaması oldukça basit ancak performansı merge sort (bölerek sıralama), Quick (Hızlı sıralama) gibi sıralamalara göre nispeten yavaş bir sıralama algoritmasıdır.
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/c4728799-28c7-41e9-a92c-99670ef85074)
+
+- Algoritma ilk geçişte yani ilk elemana kadar olan sayıları sıralı olarak kabul ediliyor.Elinde bir sayı varsa sıralı halde kendisi olacaktır.
+- Buradaki çizgi: Belirtilen yere kadarki elemanların sıralandığını belirtir.
+- Sonra ikinci sayıya bakıyor ve bir önceki ile ikinci sayıyı karşılaştırıyor.Eğer ki sıralı ise herhangi bir işlem yapmayacaktır.
+- Üçüncü geçişte  3. elemanı bulacak, solundaki elemandan küçük mü ? Evet.  O zaman bir sola daha gidiyor. Bu sayıdan küçük mü  ? Evet. Bir sola daha gidiyor şeklinde en küçüğü bulana kadar devam edecektir.Kendisinde büyük eleman görünce duracaktır.
+- Bu şekilde aralara ilgili sayılar yerleştirilerek diziyi sıralanacaktır
+
+Kısacası her adımda tek sayı sokabiliriz yani insert edebiliriz.Birden fazla sayıyı aynı anda kaydırmak gibi işlemler,bu sıralama algoritmasının hızlandırılması için kullanılan  iyileştirmelerdir.Bu uygulanabilir ancak klasik halinde böyle bir uygulama yoktur.
+
+### NOT:
+Dizinin üzerinde her seferinde swapping işlemi yapılıyor.Bir önceki ile bir sonrakinin yer değiştirilmesi şeklinde devam ediyor.Bütün sayılarının yerinin oynatılması gerekiyor,böyle bir problem var.En başa gidelecekse de bütün dizinin geçilmesi gibi bir problem var.
+
+
+#### Worst case:  
+Dizi bize tam ters sıralı bir şekilde verildiğini düşünelim.Yani biz küçükten büyüğe sıralamak istiyoruz ama  Büyükten küçüğe sıralı bir dizi verildi. O zaman her sayı için en küçük sayı en başa  getirilene kadar yani ilk sayı alınacak sonra ikinci sayı alınacak sonra üçüncü sayı  şeklinde  n'e kadar giden sayıların toplamı kadar üzerinden geçilecek. Dolayısıyla n.(n+1)/2 dir. Genel olarak sıralama algoritmalarında görmeye alışık olduğumuz bir durumdur.Comlexity'si (N^2 )olacaktır.
+
+#### Best case:
+Sıralı  bir dizi verilmiş olabilir. Küçükten büyüğe sıralamak istiyoruzdur ve  küçükten büyüğe sıralı bir dizi verilmiş olabilir. O zaman tek yapacağımız şey sıralılar çubuğunu kaydırmak. Bu durumda da  n tane sayının üzerinden birer kere geçeceği için Complexity'si  (N )olacaktır
+
+#### Average case:
+N^2 ile N nin ortalaması  da N^2 cinsinden bir şey çıkacaktır.
+
+### NOT : Bu  algoritma bir önceki Selection Sort 'a göre  Best case ve Average case 'de avantajlı fakat worst case'de yine aynıdır.Kodlamasına gelince ise genellikle dizi üzerinden kodlanıyor.
+
+### Space Complexity
+
+ Hafıza karmaşıklığı  N 'dir çünkü N 'lik bir dizinin içerisinde çalışabiliyor " ilave bir hafızaya ihtiyaç duymuyor ".
+
+
+ ### NOT : Şöyle bir genel yanılgı vardır.Levitin'in kitaplarında Average case: (best case + worst case)/2   bunun doğru olmayacağı belirtilse de ve genellikle belirli kabuller ve olasılıklar alınarak average case bulunulduğu belirtilse de bunun yanlış olabileceğini kanıtlayan çıkarımlar mevcut.Okuduğum kitaba ve yaptığım araştırmaya göre Levitin'in kitabında "random dağılımlar" için bu kabul ediliyor. Notasyon olarak  n^2/2 zaten sabit değerle çarpma/bölme  işlemi olduğu için  n^2 'ye yakınsar.Yaptığım araştırmaya göre internet üzerinden bunun zamanını ölçen birkaç bulguya rastladım.
+
+ ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/bf24f1e8-92fc-43a9-806c-3f6652ffec38)
+
+Görüldüğü üzere  ortalama değer zamanını (max+min)/2 değerine yakın veriyor.
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/84ee7fef-581e-45f2-9ea7-5b2caf9b10de)
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/e6bc639f-5f97-4e26-8a68-0cc84f441d5d)
+
+### Karmaşıklık Analizi
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/e67ed756-24c9-40ad-9dfa-e51c50c496b9)
+
+- Burada best case iç loop'a hiç girmeyebilir demiş.Eğer sıralı bir dizi gelirse iç loop'a hiç girmesse benim için tek loop'da bitiyor.Insertion  sort'un select sorta göre en büyük avantajı budur.Eğer dizi sıralı ise bir tane loop dönüp O(n) 'de bitiveriyor.Zaten sıralı olduğu için tekrrar tekrar swap işlemi yapmasına gerek kalmiyor.Insertion sort'da base casede sıralı olsa dahi döngüyü dolaşacaktır.Çünkü sıralı olsa dahi minimumu bulacaktır.
+- Aynı şekilde while döngüsünden kaynakla n^2 mertebesine çıkıyor diyoruz.
+- Mentalite yine aynı bir şeyin en küçüğünü bulmaktır.Ya dıştan yani arkadan,en sonuncudan aşağı inmek ya da başlangıçtan yukarı çıkmak.İki temel fark budur.Bakarsak ikisi de aynı mertebede çalışıyor. N^2 mertebesinde çalışıyor. 
+
+### Önemli
+
+- Selection sort garanti best case  n^2 de çalışıyor ama insertion sortda best case'in avantajı vardır.Sıralı olduğu zaman while döngüsüne girmiyor.Bu sebeple while döngüsü seçilmiştir zaten.Neden iç içie for loop veya  neden bir for  bir while tercih ediyim ki  sorusunu bügüne kadar düşündük mü ?  İşte farkı bu iki tane sorting algoritması eğer sıralı bir dizi geliyorsa tek  n loop'unda bitiriyor. O(n) ile bitirip çıkıyor.While loop'una girmiyor
+
+Selection sort, best case senaryosunda bile O(n^2) zaman karmaşıklığına sahipken, Insertion sort'ta best case O(n) avantajı  vardır. İkinci durumda, dizi zaten sıralı olduğunda, while döngüsüne girmediği için ek işleme gerek kalmaz. Bu nedenle, Insertion sort'un iç mekanizması, veri zaten sıralıysa optimal bir şekilde çalışır.Yani sıralı olduğu zaman while döngüsüne girmiyor.Zaten bu sebeple while döngüsü seçilmiştir.Neden " iç içe  for loop" veya  neden " bir for  bir while " tercih ediyim ki  sorusunu bügüne kadar düşündük mü ?  İşte farkı bu iki tane sorting algoritması eğer sıralı bir dizi geliyorsa " tek  n loop'unda "  bitiriyor. O(n) ile bitirip çıkıyor.While loop'una girmiyor.
+
+
+Bu nedenle, insertion sort, sıralı veya neredeyse sıralı diziler için tercih edilen bir algoritmadır. Bu durum, algoritmanın sıralı bir dizi ile karşılaştığında, sadece tek bir geçişle 
+O(n) zaman karmaşıklığı ile çalışmasına olanak sağlar. While döngüsüne girmediği için zaman kazanır, bu da Insertion sort'un temel avantajlarından biridir.
+
+Ancak en kötü durum için, for döngüsü 𝑛 kere çalışacak, while döngüsü de 𝑛 kere çalışacak ve swap işlemleri yapılacaktır. Bu durum, Selection sort algoritmasına göre daha fazla swap işlemi yapılmasına neden olur, ki bu da işlem süresini (processing time) artırır. En kötü durumda, Selection Sort'un karmaşıklığı O(n^2) olmasına rağmen, deneysel analizler, Insertion sort'un bu durumda daha uzun sürebileceğini gösterir.Insertion sort'un en kötü senaryosu, sıralama işlemini küçükten büyüğe yaparken, giriş verisinin büyükten küçüğe sıralı olması durumudur. Bu durumda, en kötü vakayı yaşayacağızdır.
+
+Selection sort, iki iç içe geçmiş for döngüsü kullanılarak inşa edilir ve her döngüde sadece bir swap işlemi yapılır. Öte yandan, Insertion sort'ta daha fazla swap işlemi olabilir.
+Selection sort ---> Basic Operation : Karşılaştırma iken
+Insertion sort ---> Basic Operation : Swap işlemidir.
+
+Bu iki algoritmanın karmaşıklık analizleri her ne kadar O(n^2) olarak görünse de, implementasyon sürecinde aralarında belirgin bir fark vardır. Insertion sort, karşılaştırmalı olarak daha fazla swap işlemi gerektirir, bu da onu Selection sort'a göre daha yavaş ve daha az verimli kılar.
+
+İkisinin arasındaki fark, karmaşık giriş kümeleriyle çalışıldığında daha da belirginleşir. Insertion sort'ta, her döngüde bir swap işlemi gerçekleşebilir. Bu, döngü sayısı arttıkça işlem süresinin de artmasına yol açar. Selection sort'ta ise her döngüde sadece bir swap işlemi vardır. Sonuç olarak, implementasyon sırasında, Selection sort genellikle daha verimliyken, Insertion sort daha fazla swap işlemi nedeniyle daha yavaş çalışabilir.
+
 
 
 
