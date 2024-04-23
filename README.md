@@ -67,6 +67,7 @@ Lisans, yüksek lisans ve doktorası İTÜ Bilgisayar Mühendisliği olan Sayın
 ### Algoritma Analizi - Çalışma Süresi Fonksiyonu - Karmaşıklık
 
 - Şayet girdi küçükse hafıza ve zaman karmaşıklıkları çok önemli değildir.Algoritmaların karşılaştırılması için algoritmaların zaman ve hafıza karmaşıklıklarındaki büyüme karşılaştırılır.
+- Burada Big-O terimine neden bu şekilde denildiğini de aktarmak isterim.Buradaki "Big" kelimesi, büyük giriş boyutlarına ve büyüyen veriye dair konseptleri vurgular; çünkü bu notasyon, bir algoritmanın veya fonksiyonun giriş boyutu arttıkça nasıl davrandığını göstermek için kullanılır."O" ise "Order" yani "derece" anlamına gelir. Bu notasyon, büyük ölçekli büyüme eğilimlerini yakalamaya çalışır ve dolayısıyla performans veya kaynak tüketimi açısından hangi büyüklükte değişimler beklenebileceğini belirtir.Terimin tam adı "Big-Order" gibi düşünülebilir, ancak kısaca "Big-O" olarak adlandırılır.
 
 #### NOT:
 
