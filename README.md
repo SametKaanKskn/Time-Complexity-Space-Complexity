@@ -372,9 +372,9 @@ Insertion Sort:
 - Worst case: O(N^2)
 
 
+#### Insertion Sort Daha İyi Anlamak İçin Oluşturduğum Akış:
 
-
-
+![Insertion Sort](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/7bd2a413-0872-4914-b0a0-bb31b35787ad)
 
 
 
