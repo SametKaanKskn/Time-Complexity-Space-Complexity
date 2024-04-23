@@ -4,6 +4,8 @@ Lisans, yüksek lisans ve doktorası İTÜ Bilgisayar Mühendisliği olan Sayın
 
 # İçindekiler
 
+https://www.toptal.com/developers/sorting-algorithms
+
 ### Algoritma
 
 - **Algoritma**: Algoritmalar,her biri açık bir anlama sahip olan ve sınırlı süre içerisinde yeterli miktarda çabayla gerçekleştirilebilen sınırlı bir talimat dizisi [Aho,Hopcroft,and Ulman]
@@ -378,6 +380,80 @@ Insertion Sort:
 ![Insertion Sort](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/7bd2a413-0872-4914-b0a0-bb31b35787ad)
 
 #### Yani bakıyor, karşılaştırıyor eğer küçükse küçük olanı karşılaştıra karşılaştıra , kaydıra kaydıra aşagı indiriyor.
+
+## Bubble Sort ( Kabarcık Sıralaması)
+
+- Baloncuk sıralama algoritması (bubble sort), verilerin hafızada sıralı şekilde tutulmasını sağlayan basit bir algoritmadır. Bu algoritma, ardışık iki hafıza bloğunu karşılaştırarak ve gerekli olduğu durumlarda değiştirerek çalışır. Ardışık iki blok üzerinde yapılan bu kontrol ve değişim işlemi, algoritmanın bir baloncuğun yüzeye çıkması gibi veriler üzerinde yukarıya doğru hareket etmesi nedeniyle "baloncuk" ismini almıştır.
+
+- Baloncuk sıralama algoritması, bu kontrol ve değişim işlemini sürekli tekrarlayarak verileri sıralar. Sıralama tamamlanana kadar her döngüde ardışık bloklar üzerinde kıyaslama yapılır ve gerektiğinde değişiklikler uygulanır. Basitliği ve netliği nedeniyle eğitim amaçlı sıklıkla kullanılan bu algoritma, küçük veriler için uygundur ancak büyük verilerde daha verimli algoritmalar tercih edilir.
+
+- ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/5bf7a805-acba-43a5-8349-9c10b8d45eae)
+
+Başlangıç: Bu dizi üzerinde işlem yapmaya başladığımızı varsayalım. Öncelikle ilk iki elemana bakarak küçükten büyüğe sıralama yapıyoruz. Örneğin, 5 ve 7'ye bakarak hangisinin daha küçük olduğunu belirliyoruz. Eğer küçük olan zaten öncedeyse, yerlerini değiştirmiyoruz. Bu durumda, 5 zaten 7'den küçük olduğu için hiçbir değişiklik yapılmayacaktır.
+
+İlerleme: Daha sonra, bir adım kayarak sonraki iki elemana bakıyoruz. Örneğin, 7 ve 2'yi karşılaştırarak hangisinin küçük olduğunu belirliyoruz. Eğer 2 küçükse, 2'yi başa alarak 7'yi sonraya kaydırıyoruz. Bu şekilde, daha küçük sayılar öne doğru kaydırılmış olacaktır.
+
+İlk Dizi Üzerinden Geçiş: Dizinin tamamı üzerinden bir kez geçildiğinde, "en büyük sayı sona doğru kaydırılmış " olur. Birinci geçiş tamamlandığında, "dizideki en büyük sayı sona yerleşmiş olacaktır".
+
+Tekrar: Algoritma, her seferinde bir adım daha azalarak dizinin üzerinden tekrar geçer. İkinci geçişte, en büyük iki sayı sona yerleşmiş olur. Üçüncü geçişte, en büyük üç sayı sona atılır ve bu şekilde devam eder.
+
+Tamamlanma: Bu algoritma, dizi içerisindeki N elemanı N kere tekrar ederek sıralar. Her adımda, dizideki en büyük eleman sona doğru kaydırılır ve sonuçta dizi küçükten büyüğe doğru sıralanmış olur.
+Bu süreç adım adım takip edilerek , sıralama işlemi başarıyla tamamlanır. Bu süreç, n elemanlı bir dizi için n-1 geçiş gerektirir, ancak bazı iyileştirmelerle bu sayıyı azaltmak mümkündür.
+
+
+#### Algoritmanın çalışması şu şekilde olacaktır
+
+1. ilk iki sayıyı al
+2. aldığın iki sayıyı karşılaştır
+3. küçük olanı yaz diğerini aklında tut
+4. dizinin sonuna geldiysen aklındaki sayıyı diziye yazarak bitir
+5. dizinin sonu değilse yeni bir sayı al.
+6. 2. adıma geri git.
+
+
+#### İyileştirme Olarak
+
+- Zaten sıralı dizi: Eğer dizi zaten sıralıysa, ilk geçişten sonra daha fazla geçişe gerek yoktur.
+- Tersten sıralı dizi: Dizi tersten sıralıysa, en fazla sayıda geçiş gerektirir. 
+
+#### İyileştirme Yaklaşımları
+
+- Sıralı diziyi erken tespit etme: Eğer bir geçiş sırasında hiç değişim olmazsa, dizinin zaten sıralı olduğu anlamına gelir. Bu durumda, daha fazla geçiş yapmak gereksizdir.
+  
+- Geçiş sınırlarını daraltma: Her geçişte en büyük eleman sona taşındığı için, sonraki geçişlerde son elemanı kontrol etmek gereksizdir. Bu nedenle, sonraki her geçişte kontrol edilen eleman sayısı azalır. Örneğin, ilk geçişten sonra son elemanı kontrol etmeye gerek yoktur. İkinci geçişte son iki elemanı, üçüncü geçişte son üç elemanı kontrol etmek gereksizdir.
+
+#### Bubble Sort Time and Space Complexity
+
+Worst-case time complexity: O(n²)
+Average time complexity: O(n²)
+Best-case time complexity: O(n) (dizi zaten sıralanmış ise)
+
+Worst case için N elemanlı bir dizi için  N kadar adım olacak ve her adımda da 1 azalarak gidecek.Dolayısıyla  1 'den N 'e kadar olan sayıların toplamı şeklinde adım  gerekecektir. Bu da n.(n+1)/2 dir. Yani O(N^2) olacaktır.
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/2d5249f6-ebe5-4e62-a821-01a87a08bbdb)
+
+#### Complexity Analysis
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/a4136ed0-f884-483c-9d40-a62cfe2abfd9)
+
+
+#### NOT: Insertion sortdaki fark karşılaştırıp kaydıra kaydıra başa kadar iniyorduk.Burada ise komşu komşu kaydırıyoruz.Sırasısz ise yer değiştiriyoruz.
+
+- Selection Sort :  Tüm diziyi tarıyordu başa koyuyordu, tüm diziyi tarıyordu başa koyuyordu.
+
+- Insertion Sort:  Bakıyordu, karşılaştırıyordu eğer küçükse küçük olanı karşılaştıra karşılaştıra , kaydıra kaydıra aşagı indiriyordu.
+  
+- Bubble Sort: 	- Bubble sortdaki fark büyüğü alıp en sona oturtuyor.Diğerlerindeki fark ise kaydıra kaydıra küçükleri başa çekiyor. N^2 mertebesinde bir algoritmadır.
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/ef75e5fb-572b-43c3-8a5a-7ecb4e7caaa8)
+
+Burada sıralı dizinin gelmesi swap operasyonunu azaltır fakat bu iki döngü kesinlikle dönecektir. Bu durum için (iyileştirmeden yapılmamış hali) 
+
+- Best case: N^2 
+- Average case: N^2
+- Worst case: N^2
+
+
 
 
 
