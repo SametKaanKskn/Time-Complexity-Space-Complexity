@@ -376,6 +376,8 @@ Insertion Sort:
 
 ![Insertion Sort](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/7bd2a413-0872-4914-b0a0-bb31b35787ad)
 
+#### Yani bakıyor, karşılaştırıyor eğer küçükse küçük olanı karşılaştıra karşılaştıra , kaydıra kaydıra aşagı indiriyor.
+
 
 
 
