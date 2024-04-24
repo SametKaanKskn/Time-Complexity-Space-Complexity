@@ -424,9 +424,11 @@ Bu süreç adım adım takip edilerek , sıralama işlemi başarıyla tamamlanı
 
 #### Bubble Sort Time and Space Complexity
 
-Worst-case time complexity: O(n²)
-Average time complexity: O(n²)
-Best-case time complexity: O(n) (dizi zaten sıralanmış ise)
+- Worst-case time complexity: O(n²)
+- Average time complexity: O(n²)
+- Best-case time complexity: O(n) (dizi zaten sıralanmış ise)
+
+#### NOT :  Hafızadaki ihtiyacına bakıldığında ise mevcut veri kadar yer tutması yeterlidir. Bu durumda hafıza karmaşıklığı O(n) olarak hesaplanabilir.
 
 Worst case için N elemanlı bir dizi için  N kadar adım olacak ve her adımda da 1 azalarak gidecek.Dolayısıyla  1 'den N 'e kadar olan sayıların toplamı şeklinde adım  gerekecektir. Bu da n.(n+1)/2 dir. Yani O(N^2) olacaktır.
 
@@ -454,9 +456,9 @@ Burada sıralı dizinin gelmesi swap operasyonunu azaltır fakat bu iki döngü 
 - Worst case: N^2
 
 
+#### NOT: Eklenilen kodda  her geçişte bütün diziye bakılmasına gerek yoktur. Çünkü dizinin sonundaki elemanlar zaten yer değiştirmeyecektir.
 
-
-
+#### NOT: En kötü durumda (worst case analysis) n^2 olur.Çünkü  her geçişte geçiş sayısı kadar elemana bakılması gerekecektir. Örneğin eleman sayısı n olan bir dizi için k. geçişte n-k elemana bakılacak. Dolayısıyla 0. geçişte n elemana 1. geçişte n-1 elemana son geçişte ise n-n yani 0 elemana bakılır. Bu durumda toplam sayı 1’den n’ya kadar olan sayılrın toplamıdır ve n x (n+1) / 2 elemana bakılması gerekir. Bu durumda O(n2) değeri bulunur (upper bound olduğu için)
 
 
 
