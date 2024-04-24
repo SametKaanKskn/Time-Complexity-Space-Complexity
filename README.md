@@ -461,11 +461,67 @@ Burada sıralı dizinin gelmesi swap operasyonunu azaltır fakat bu iki döngü 
 #### NOT: En kötü durumda (worst case analysis) n^2 olur.Çünkü  her geçişte geçiş sayısı kadar elemana bakılması gerekecektir. Örneğin eleman sayısı n olan bir dizi için k. geçişte n-k elemana bakılacak. Dolayısıyla 0. geçişte n elemana 1. geçişte n-1 elemana son geçişte ise n-n yani 0 elemana bakılır. Bu durumda toplam sayı 1’den n’ya kadar olan sayılrın toplamıdır ve n x (n+1) / 2 elemana bakılması gerekir. Bu durumda O(n2) değeri bulunur (upper bound olduğu için)
 
 
+## Counting Sort (Sayarak Sıralama)
 
+- Verinin hafızada sıralı tutulması için geliştirilen sıralama algoritmalarından (sorting algorithms) bir tanesidir. Basitçe sıralanacak olan dizideki her sayının kaç tane olduğunu farklı bir dizide sayar. Daha sonra bu sayıların bulunduğu dizinin üzerinde bir işlemle sıralanmış olan diziyi elde eder.
+  
+- Klasik sıralama algoritmaları (Selection, Insertion, Bubble) özel bir teknik uygulanmadıkça, örneğin merge sort veya quick sort gibi "parçala ve fethet" yaklaşımı kullanılmadıkça, O(N^2) zaman karmaşıklığına sahiptir. Ancak sayma (counting) sort algoritması, farklı bir yaklaşım izlediğinden, zaman karmaşıklığı O(N) olan bir sıralama algoritmasıdır.
 
+- Sıralama algoritmalarının teorik zaman karmaşıklığı sınırı, karşılaştırma tabanlı algoritmalar için Ω(nlogn) olarak belirlenmiştir​ (Brilliant | Learn interactively)​. Bu tür algoritmalar, elemanların sıralamasını belirlemek için karşılaştırmaları kullanır. Merge sort ve quicksort gibi algoritmalar, bu teorik sınıra ulaşır ve bu nedenle en verimli karşılaştırma tabanlı sıralama algoritmaları arasında yer alır.  [ Brilliant | Learn interactively : https://brilliant.org/wiki/sorting-algorithms/ ]
 
+- Bununla birlikte, bazı sıralama algoritmaları, zaman karmaşıklığını O(n) düzeyine indirerek daha hızlı çalışabilir. Örneğin, counting sort gibi algoritmalar, elemanları karşılaştırmadan sıralar. Bunun yerine, her değerin kaç kez göründüğünü sayar ve bu sayıları kullanarak elemanları sıralar​. Bu yaklaşım, ek hafıza kullanımı ile birlikte gelir, ancak zaman karmaşıklığı daha düşüktür. (https://www.programiz.com/dsa/sorting-algorithm)
 
+- Sonuç olarak, karşılaştırma tabanlı algoritmalar teorik olarak Ω(nlogn) sınırına sahiptir, ancak bazı algoritmalar ek hafıza kullanarak bu sınırı aşabilir​ (Brilliant | Learn interactively)​. Counting sort, bu istisnayı gösteren bir örnektir.
 
+- Sıralama algoritmaları genellikle bir diziyi düzenlerken, bellekte ek yer tutmazlar. Örneğin, Bubble Sort ve Selection Sort gibi algoritmalar, dizinin içinde çalışarak başka bir bellek yapısı oluşturmazlar. Bu nedenle hafıza karmaşıklığı genellikle sabit kalır ve çoğu durumda O(1) seviyesindedir. (https://www.freecodecamp.org/news/sorting-algorithms-explained-with-examples-in-python-java-and-c/)
 
+- Counting Sort, elemanları karşılaştırarak değil, her elemanın kaç kez göründüğünü sayarak çalışır. Bu nedenle, sıralama için ek bir dizi kullanır. Bu ek dizi, sıralanacak elemanların değerlerini saymak için kullanılır. Örneğin, bir dizi içinde 10'dan fazla eleman varsa, Counting Sort her değerin kaç kez göründüğünü izlemek için bu değerleri içeren başka bir dizi tutar. Bu da ek bellek ihtiyacını artırır ve hafıza karmaşıklığını yükseltir​. (https://brilliant.org/wiki/sorting-algorithms/)
 
+- Bu yaklaşım, hafıza karmaşıklığını artırırken, zaman karmaşıklığını azaltır. Normalde karşılaştırmaya dayalı sıralama algoritmaları Ω(nlogn) karmaşıklığına sahiptir, ancak Counting Sort, ek dizi sayesinde sıralama işlemini O(n) seviyesine indirebilir. Bellek karmaşıklığı yüksek olsa da, bu ek dizi zaman karmaşıklığını düşürür ve sıralama işlemini hızlandırır.Yani, Counting Sort, hızlı bir sıralama sağlamak için daha fazla hafıza kullanır. Bu, sıralanacak verilerin değerlerinin belirli bir aralıkta yoğunlaştığı durumlarda faydalıdır, ancak daha geniş bir aralıkta değerler olduğunda yüksek bellek ihtiyacı nedeniyle pratik olmayabilir.
 
+- Selection, Insertion ve Bubble sort gibi klasik sıralama algoritmaları, genellikle giriş boyutu arttıkça zaman karmaşıklığı O(N^2) olan algoritmalardır​. Ancak bu algoritmalar, büyük veri setlerinde yavaş çalışabilir ve daha fazla hesaplama süresi gerektirebilir.Şimdi ise daha spesifik daha verimli olan ve zaman karmaşıklığı daha düşük olan algoritmaları inceleyecek olursak; örneğin, Counting sort ve Radix sort, " karşılaştırmaya dayalı olmayan " algoritmalardır ve zaman karmaşıklığı O(N) seviyesine kadar inebilir​. Bu algoritmalar, "belirli bir aralıktaki sayılar " veya " belirli formatlarda veriler " için etkili olabilir.
+
+- ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/2076099c-2d78-450f-b075-c5f5df6b332a)
+
+- Counting sort ise karşılaştırma yapmadan, elemanların sıklığını hesaplayarak çalışır. Bu algoritmada üç dizi kullanılır:
+
+- A dizisi: Sıralanacak giriş dizisi, elemanları içerir.
+- B dizisi: Algoritmanın koşturulması sonucu  olarak sıralanmış elemanları tutar.
+- C dizisi: C diye de ayrı bir dizi tutacam. 0 'dan k'ya  yalnız dikkat edelim n'ye değil. Bu dizi algoritma koşturulması sonucunda her bir elemanın dizideki tekrar sayısını belirtecek C[0…k]. 0'dan k'ya kadar her elemanın kaç kez göründüğünü kaydeder.Örnegin 0. eleman 0'dan  0 tane var.  3 'den  4 tane var gibi bir şey tutuyor bu C.
+
+#### Nasıl Çalıştığına Bakarsak 
+
+- C Dizisinin Başlatılması: İlk olarak, C dizisini 0'dan K'ya kadar sıfırlarız. Bu, algoritmanın her elemanın sayısını kaydetmek için kullanacağı dizidir. C dizisini sıfırlamak, ileride doğru sayımlar elde etmek için önemlidir.
+  
+- Elemanların Sayılması: Ardından, A dizisini baştan sona dolaşıp her elemanın sayısını C dizisine kaydederiz. A dizisindeki her bir elemanın kaç kez geçtiğini saymak için döngü kullanılır. C dizisi, elemanların hangi sıklıkla göründüğünü saklar. Örneğin, A dizisinde 3 sayısından 4 adet varsa, C dizisinde bu bilgi tutulur.
+
+- Kümülatif Sayımın Hesaplanması: Bir sonraki adımda, C dizisinde kümülatif bir toplam oluştururuz. C dizisini bir baştan diğer başa dolaşıp, önceki elemanların toplamını her bir elemanın yanına ekleyerek ilerleriz. Bu adım, elemanların sıralamada nereye yerleştirileceğini belirlemeye yardımcı olur. Örneğin, C dizisinde C[i] ve C[i - 1]'in toplamı, B dizisinde A dizisindeki elemanların doğru sırada yerleştirileceği yeri gösterecektir.
+ 
+- Elemanların Sıralanmış Dizide Yerleştirilmesi: Son olarak, A dizisindeki elemanları C dizisindeki kümülatif toplamlara dayanarak B dizisine yerleştiririz. A dizisindeki elemanların sıralı halde B dizisine yerleştirildiği adım budur. Her elemanı yerleştirdikten sonra, C dizisindeki ilgili sayımı 1 azaltırız. Bu, elemanların doğru sırada yerleşmesini sağlar.
+
+- ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/33a9e20f-d2e9-47b0-9d7c-5272d7bdbbc9)
+
+- İlk olarak  Max elemanını buluyoruz. Max eleman benim için k oluyor.
+- Yani  5 elemanlı bir count dizisi tutuyorum.
+- Öncelikle hepsi 0 'dan başlatılıyor.
+- Ardından hangi elemandan kaç tane varsa count dizisine yazılıyor.
+- Ardından bir önceki ile bir sonrakini toplayarak C 'yi yeniden oluşturuyoruz
+
+#### Karmaşıklık Analizi 
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/0125894f-5b21-415a-946c-581d0bedd963)
+
+Looplar iç içe olmadığı için güzel bir avantajımızın bulunmaktadır. K  , N 'den büyük de olabilir , küçük de olabilir.  Ama linear bir zamanda bitiyor diyebiliriz. Diğer algoritmalar gibi N^2  mertebede bitmeyecek.Daha iyi , daha verimli bir alanda bitecek.
+
+#### NOT: Ekstra olarak  C gibi B gibi dizi tutmak zorundayım.Memoryden bu sebeple harcama yapıyorum. Buradaki elemanın çok büyük olduğunu düşünürsek yani k 'nın çok büyük olması halinde  C gibi çok büyük bir dizi tutmak zorundayım ekstra.Zamandan kazandım fakat memoryden götürdüğüm yer. 10'un üzerindeki rakamlara çıktığımızda C 'nin boyutu çok büyüyecek  bu sebeple bu algoritmayı verimli kullanmak için C 'yi sınırlı tutmak doğru olacaktır. Bunun için sadece  rakamlar yani 0'dan 10'a kadar olan rakamları içeren dizileri sıralamakta çok hızlı çalışabiliriz linear zamanda.
+
+Best Case (alt sınır) : ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/79d67522-38d4-4f94-8ed1-4f88d1626a6b)
+- Nlogn olarak ifade edilmiş ( karşılaştırmalı sıralama olmadığı için)
+- Giriş verisi bazı kabullenmeler gerektirmektedir . (Bunu anlamadım)
+- Kararlı mıdır ? Evet kararlı bir output sunar.Yani kesinlikle doğru bir sıralama verir mi  ? Evet  verir.
+- Counting sort , radix sortun alt fonksiyonu olarak görev yapmaktadır.
+- Yani radix sort alt fonksiyon olarak  "counting sort"u çağırıyor.
+
+#### NOT : Counting sort, küçük değer aralıklarına sahip dizileri sıralarken oldukça verimlidir. Özellikle 0-9 arasındaki rakamlar için hızlı ve etkilidir, çünkü bu aralıkta sayıları saymak ve sıralamak için gereken bellek sınırlıdır. Ancak, sayı aralığı büyüdükçe, ek bellek gereksinimi artar. Örneğin, sıralanacak en büyük eleman 25 olduğunda, 25 farklı indeks içeren bir diziye ihtiyacınız olur. Bu, büyük veri kümelerinde bellek karmaşıklığını artırır, bu nedenle counting sort, büyük aralıklar için pratik olmayabilir​.
+
+#### NOT : Radix sort, genellikle counting sort'u alt fonksiyon olarak kullanır, çünkü radix sort, daha geniş veri kümelerini sıralarken her adımı daha küçük ve yönetilebilir parçalara (divide and conquer) ayırır. Radix sort, her adımda belirli bir aralıktaki değerleri ayırmak için counting sort'u kullanarak işlemi hızlandırır. Bu yaklaşım, geniş veri kümelerini daha verimli bir şekilde sıralama olanağı sağlar.Counting sort'un bellek karmaşıklığı nedeniyle sınırlamaları olduğundan, radix sort gibi algoritmalarla birleştirilerek daha geniş veri kümelerinde kullanılabilir. Bu, sıralama işleminin hızını artırırken, bellek kullanımını da optimize eder​.
