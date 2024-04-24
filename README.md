@@ -4,6 +4,8 @@ Lisans, yüksek lisans ve doktorası İTÜ Bilgisayar Mühendisliği olan Sayın
 
 # İçindekiler
 
+https://www.toptal.com/developers/sorting-algorithms
+
 ### Algoritma
 
 - **Algoritma**: Algoritmalar,her biri açık bir anlama sahip olan ve sınırlı süre içerisinde yeterli miktarda çabayla gerçekleştirilebilen sınırlı bir talimat dizisi [Aho,Hopcroft,and Ulman]
@@ -67,6 +69,7 @@ Lisans, yüksek lisans ve doktorası İTÜ Bilgisayar Mühendisliği olan Sayın
 ### Algoritma Analizi - Çalışma Süresi Fonksiyonu - Karmaşıklık
 
 - Şayet girdi küçükse hafıza ve zaman karmaşıklıkları çok önemli değildir.Algoritmaların karşılaştırılması için algoritmaların zaman ve hafıza karmaşıklıklarındaki büyüme karşılaştırılır.
+- Burada Big-O terimine neden bu şekilde denildiğini de aktarmak isterim.Buradaki "Big" kelimesi, büyük giriş boyutlarına ve büyüyen veriye dair konseptleri vurgular; çünkü bu notasyon, bir algoritmanın veya fonksiyonun giriş boyutu arttıkça nasıl davrandığını göstermek için kullanılır."O" ise "Order" yani "derece" anlamına gelir. Bu notasyon, büyük ölçekli büyüme eğilimlerini yakalamaya çalışır ve dolayısıyla performans veya kaynak tüketimi açısından hangi büyüklükte değişimler beklenebileceğini belirtir.Terimin tam adı "Big-Order" gibi düşünülebilir, ancak kısaca "Big-O" olarak adlandırılır.
 
 #### NOT:
 
@@ -284,17 +287,178 @@ Best case ve worst case'in farkı sıralı olma ya da olmama durumudur.Bu algori
 
 ![Selection Sort](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/72442c80-229c-4183-aaec-0f26843097b3)
 
-
+Yazdığım kodda ve buradan da anlaşılacağı üzere ;
+- Dizide iki tane işaretçi belirledim.Amacım bu iki işaretçinin gösterdiği değerleri kıyaslamak
+- En içteki döngü en dıştaki döngüden daha hızlı ilerleyeceği için en dış döngümde ilk olarak 1.işaretçim ile dizinin ilk elemanının değerini min değişkenine atıyorum
+- En iç döngümde ise  j diye sürekli dizinin üzerinde gezecek farklı bir işaretçim olacak.
+- Birinci işaretçim(min) 'deki değer > 2. işaretçim(j) 'deki değerden büyükse  j değerimi (dikkat et işaretçimi değil değerini) min'e atıyorum (min=j)
+- Böylelikle  dizideki minimum değer bir değişkende(min)  tutulacaktır.
+- İkinci işaretçim bu şekilde sabit kalan 1.işaretçim (min) deki değerle dizinin sonuna kadar giderek karşılaştırılır ve dizideki en küçük elemanı bulmayı amaçlar
+- Böylelikle dizide bulunan en küçük eleman ile ilgili indekdeki elemanlar swap edilir.
+- Tüm süreç gerçekleştikten sonra elimdeki veri listem küçükten büyüğe sıralanmış bir şekilde olacaktır.
+     
 
 
 ## Insertion Sort 
 
+Eklemeli sıralama veya araya yerleştirilerek sıralama, programlaması oldukça basit ancak performansı merge sort (bölerek sıralama), Quick (Hızlı sıralama) gibi sıralamalara göre nispeten yavaş bir sıralama algoritmasıdır.
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/c4728799-28c7-41e9-a92c-99670ef85074)
+
+- Algoritma ilk geçişte yani ilk elemana kadar olan sayıları sıralı olarak kabul ediliyor.Elinde bir sayı varsa sıralı halde kendisi olacaktır.
+- Buradaki çizgi: Belirtilen yere kadarki elemanların sıralandığını belirtir.
+- Sonra ikinci sayıya bakıyor ve bir önceki ile ikinci sayıyı karşılaştırıyor.Eğer ki sıralı ise herhangi bir işlem yapmayacaktır.
+- Üçüncü geçişte  3. elemanı bulacak, solundaki elemandan küçük mü ? Evet.  O zaman bir sola daha gidiyor. Bu sayıdan küçük mü  ? Evet. Bir sola daha gidiyor şeklinde en küçüğü bulana kadar devam edecektir.Kendisinde büyük eleman görünce duracaktır.
+- Bu şekilde aralara ilgili sayılar yerleştirilerek diziyi sıralanacaktır
+
+Kısacası her adımda tek sayı sokabiliriz yani insert edebiliriz.Birden fazla sayıyı aynı anda kaydırmak gibi işlemler,bu sıralama algoritmasının hızlandırılması için kullanılan  iyileştirmelerdir.Bu uygulanabilir ancak klasik halinde böyle bir uygulama yoktur.
+
+### NOT:
+Dizinin üzerinde her seferinde swapping işlemi yapılıyor.Bir önceki ile bir sonrakinin yer değiştirilmesi şeklinde devam ediyor.Bütün sayılarının yerinin oynatılması gerekiyor,böyle bir problem var.En başa gidelecekse de bütün dizinin geçilmesi gibi bir problem var.
 
 
+#### Worst case:  
+Dizi bize tam ters sıralı bir şekilde verildiğini düşünelim.Yani biz küçükten büyüğe sıralamak istiyoruz ama  Büyükten küçüğe sıralı bir dizi verildi. O zaman her sayı için en küçük sayı en başa  getirilene kadar yani ilk sayı alınacak sonra ikinci sayı alınacak sonra üçüncü sayı  şeklinde  n'e kadar giden sayıların toplamı kadar üzerinden geçilecek. Dolayısıyla n.(n+1)/2 dir. Genel olarak sıralama algoritmalarında görmeye alışık olduğumuz bir durumdur.Comlexity'si (N^2 )olacaktır.
+
+#### Best case:
+Sıralı  bir dizi verilmiş olabilir. Küçükten büyüğe sıralamak istiyoruzdur ve  küçükten büyüğe sıralı bir dizi verilmiş olabilir. O zaman tek yapacağımız şey sıralılar çubuğunu kaydırmak. Bu durumda da  n tane sayının üzerinden birer kere geçeceği için Complexity'si  (N )olacaktır
+
+#### Average case:
+N^2 ile N nin ortalaması  da N^2 cinsinden bir şey çıkacaktır.
+
+### NOT : Bu  algoritma bir önceki Selection Sort 'a göre  Best case ve Average case 'de avantajlı fakat worst case'de yine aynıdır.Kodlamasına gelince ise genellikle dizi üzerinden kodlanıyor.
+
+### Space Complexity
+
+ Hafıza karmaşıklığı  N 'dir çünkü N 'lik bir dizinin içerisinde çalışabiliyor " ilave bir hafızaya ihtiyaç duymuyor ".
 
 
+ ### NOT : Şöyle bir genel yanılgı vardır.Levitin'in kitaplarında Average case: (best case + worst case)/2   bunun doğru olmayacağı belirtilse de ve genellikle belirli kabuller ve olasılıklar alınarak average case bulunulduğu belirtilse de bunun yanlış olabileceğini kanıtlayan çıkarımlar mevcut.Okuduğum kitaba ve yaptığım araştırmaya göre Levitin'in kitabında "random dağılımlar" için bu kabul ediliyor. Notasyon olarak  n^2/2 zaten sabit değerle çarpma/bölme  işlemi olduğu için  n^2 'ye yakınsar.Yaptığım araştırmaya göre internet üzerinden bunun zamanını ölçen birkaç bulguya rastladım.
+
+ ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/bf24f1e8-92fc-43a9-806c-3f6652ffec38)
+
+Görüldüğü üzere  ortalama değer zamanını (max+min)/2 değerine yakın veriyor.
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/84ee7fef-581e-45f2-9ea7-5b2caf9b10de)
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/e6bc639f-5f97-4e26-8a68-0cc84f441d5d)
+
+### Karmaşıklık Analizi
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/e67ed756-24c9-40ad-9dfa-e51c50c496b9)
+
+- Burada best case iç loop'a hiç girmeyebilir demiş.Eğer sıralı bir dizi gelirse iç loop'a hiç girmesse benim için tek loop'da bitiyor.Insertion  sort'un select sorta göre en büyük avantajı budur.Eğer dizi sıralı ise bir tane loop dönüp O(n) 'de bitiveriyor.Zaten sıralı olduğu için tekrrar tekrar swap işlemi yapmasına gerek kalmiyor.Insertion sort'da base casede sıralı olsa dahi döngüyü dolaşacaktır.Çünkü sıralı olsa dahi minimumu bulacaktır.
+- Aynı şekilde while döngüsünden kaynakla n^2 mertebesine çıkıyor diyoruz.
+- Mentalite yine aynı bir şeyin en küçüğünü bulmaktır.Ya dıştan yani arkadan,en sonuncudan aşağı inmek ya da başlangıçtan yukarı çıkmak.İki temel fark budur.Bakarsak ikisi de aynı mertebede çalışıyor. N^2 mertebesinde çalışıyor. 
+
+### Önemli
+
+- Selection sort garanti best case  n^2 de çalışıyor ama insertion sortda best case'in avantajı vardır.Sıralı olduğu zaman while döngüsüne girmiyor.Bu sebeple while döngüsü seçilmiştir zaten.Neden iç içie for loop veya  neden bir for  bir while tercih ediyim ki  sorusunu bügüne kadar düşündük mü ?  İşte farkı bu iki tane sorting algoritması eğer sıralı bir dizi geliyorsa tek  n loop'unda bitiriyor. O(n) ile bitirip çıkıyor.While loop'una girmiyor
+
+- Selection sort, best case senaryosunda bile O(n^2) zaman karmaşıklığına sahipken, Insertion sort'ta best case O(n) avantajı  vardır. İkinci durumda, dizi zaten sıralı olduğunda, while döngüsüne girmediği için ek işleme gerek kalmaz. Bu nedenle, Insertion sort'un iç mekanizması, veri zaten sıralıysa optimal bir şekilde çalışır.Yani sıralı olduğu zaman while döngüsüne girmiyor.Zaten bu sebeple while döngüsü seçilmiştir.Neden " iç içe  for loop" veya  neden " bir for  bir while " tercih ediyim ki  sorusunu bügüne kadar düşündük mü ?  İşte farkı bu iki tane sorting algoritması eğer sıralı bir dizi geliyorsa " tek  n loop'unda "  bitiriyor. O(n) ile bitirip çıkıyor.While loop'una girmiyor.Bu nedenle, insertion sort, sıralı veya neredeyse sıralı diziler için tercih edilen bir algoritmadır. Bu durum, algoritmanın sıralı bir dizi ile karşılaştığında, sadece tek bir geçişle 
+O(n) zaman karmaşıklığı ile çalışmasına olanak sağlar. While döngüsüne girmediği için zaman kazanır, bu da Insertion sort'un temel avantajlarından biridir.
+
+Ancak en kötü durum için, for döngüsü 𝑛 kere çalışacak, while döngüsü de 𝑛 kere çalışacak ve swap işlemleri yapılacaktır. Bu durum, Selection sort algoritmasına göre daha fazla swap işlemi yapılmasına neden olur, ki bu da işlem süresini (processing time) artırır. En kötü durumda, Selection Sort'un karmaşıklığı O(n^2) olmasına rağmen, deneysel analizler, Insertion sort'un bu durumda daha uzun sürebileceğini gösterir.Insertion sort'un en kötü senaryosu, sıralama işlemini küçükten büyüğe yaparken, giriş verisinin büyükten küçüğe sıralı olması durumudur. Bu durumda, en kötü vakayı yaşayacağızdır.
+
+Selection sort, iki iç içe geçmiş for döngüsü kullanılarak inşa edilir ve her döngüde sadece bir swap işlemi yapılır. Öte yandan, Insertion sort'ta daha fazla swap işlemi olabilir.
+
+- Selection sort ---> Basic Operation : Karşılaştırma iken
+- Insertion sort ---> Basic Operation : Swap işlemidir.
+
+Bu iki algoritmanın karmaşıklık analizleri her ne kadar O(n^2) olarak görünse de, implementasyon sürecinde aralarında belirgin bir fark vardır. Insertion sort, karşılaştırmalı olarak daha fazla swap işlemi gerektirir, bu da onu Selection sort'a göre daha yavaş ve daha az verimli kılar.
+
+İkisinin arasındaki fark, karmaşık giriş kümeleriyle çalışıldığında daha da belirginleşir. Insertion sort'ta, her döngüde bir swap işlemi gerçekleşebilir. Bu, döngü sayısı arttıkça işlem süresinin de artmasına yol açar. Selection sort'ta ise her döngüde sadece bir swap işlemi vardır. Sonuç olarak, implementasyon sırasında, Selection sort genellikle daha verimliyken, Insertion sort daha fazla swap işlemi nedeniyle daha yavaş çalışabilir.
+
+Insertion Sort:
+- Best case: O(N)
+- Average case: O(N^2)  
+- Worst case: O(N^2)
 
 
+#### Insertion Sort Daha İyi Anlamak İçin Oluşturduğum Akış:
+
+![Insertion Sort](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/7bd2a413-0872-4914-b0a0-bb31b35787ad)
+
+#### Yani bakıyor, karşılaştırıyor eğer küçükse küçük olanı karşılaştıra karşılaştıra , kaydıra kaydıra aşagı indiriyor.
+
+## Bubble Sort ( Kabarcık Sıralaması)
+
+- Baloncuk sıralama algoritması (bubble sort), verilerin hafızada sıralı şekilde tutulmasını sağlayan basit bir algoritmadır. Bu algoritma, ardışık iki hafıza bloğunu karşılaştırarak ve gerekli olduğu durumlarda değiştirerek çalışır. Ardışık iki blok üzerinde yapılan bu kontrol ve değişim işlemi, algoritmanın bir baloncuğun yüzeye çıkması gibi veriler üzerinde yukarıya doğru hareket etmesi nedeniyle "baloncuk" ismini almıştır.
+
+- Baloncuk sıralama algoritması, bu kontrol ve değişim işlemini sürekli tekrarlayarak verileri sıralar. Sıralama tamamlanana kadar her döngüde ardışık bloklar üzerinde kıyaslama yapılır ve gerektiğinde değişiklikler uygulanır. Basitliği ve netliği nedeniyle eğitim amaçlı sıklıkla kullanılan bu algoritma, küçük veriler için uygundur ancak büyük verilerde daha verimli algoritmalar tercih edilir.
+
+- ![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/5bf7a805-acba-43a5-8349-9c10b8d45eae)
+
+Başlangıç: Bu dizi üzerinde işlem yapmaya başladığımızı varsayalım. Öncelikle ilk iki elemana bakarak küçükten büyüğe sıralama yapıyoruz. Örneğin, 5 ve 7'ye bakarak hangisinin daha küçük olduğunu belirliyoruz. Eğer küçük olan zaten öncedeyse, yerlerini değiştirmiyoruz. Bu durumda, 5 zaten 7'den küçük olduğu için hiçbir değişiklik yapılmayacaktır.
+
+İlerleme: Daha sonra, bir adım kayarak sonraki iki elemana bakıyoruz. Örneğin, 7 ve 2'yi karşılaştırarak hangisinin küçük olduğunu belirliyoruz. Eğer 2 küçükse, 2'yi başa alarak 7'yi sonraya kaydırıyoruz. Bu şekilde, daha küçük sayılar öne doğru kaydırılmış olacaktır.
+
+İlk Dizi Üzerinden Geçiş: Dizinin tamamı üzerinden bir kez geçildiğinde, "en büyük sayı sona doğru kaydırılmış " olur. Birinci geçiş tamamlandığında, "dizideki en büyük sayı sona yerleşmiş olacaktır".
+
+Tekrar: Algoritma, her seferinde bir adım daha azalarak dizinin üzerinden tekrar geçer. İkinci geçişte, en büyük iki sayı sona yerleşmiş olur. Üçüncü geçişte, en büyük üç sayı sona atılır ve bu şekilde devam eder.
+
+Tamamlanma: Bu algoritma, dizi içerisindeki N elemanı N kere tekrar ederek sıralar. Her adımda, dizideki en büyük eleman sona doğru kaydırılır ve sonuçta dizi küçükten büyüğe doğru sıralanmış olur.
+Bu süreç adım adım takip edilerek , sıralama işlemi başarıyla tamamlanır. Bu süreç, n elemanlı bir dizi için n-1 geçiş gerektirir, ancak bazı iyileştirmelerle bu sayıyı azaltmak mümkündür.
+
+
+#### Algoritmanın çalışması şu şekilde olacaktır
+
+1. ilk iki sayıyı al
+2. aldığın iki sayıyı karşılaştır
+3. küçük olanı yaz diğerini aklında tut
+4. dizinin sonuna geldiysen aklındaki sayıyı diziye yazarak bitir
+5. dizinin sonu değilse yeni bir sayı al.
+6. 2. adıma geri git.
+
+
+#### İyileştirme Olarak
+
+- Zaten sıralı dizi: Eğer dizi zaten sıralıysa, ilk geçişten sonra daha fazla geçişe gerek yoktur.
+- Tersten sıralı dizi: Dizi tersten sıralıysa, en fazla sayıda geçiş gerektirir. 
+
+#### İyileştirme Yaklaşımları
+
+- Sıralı diziyi erken tespit etme: Eğer bir geçiş sırasında hiç değişim olmazsa, dizinin zaten sıralı olduğu anlamına gelir. Bu durumda, daha fazla geçiş yapmak gereksizdir.
+  
+- Geçiş sınırlarını daraltma: Her geçişte en büyük eleman sona taşındığı için, sonraki geçişlerde son elemanı kontrol etmek gereksizdir. Bu nedenle, sonraki her geçişte kontrol edilen eleman sayısı azalır. Örneğin, ilk geçişten sonra son elemanı kontrol etmeye gerek yoktur. İkinci geçişte son iki elemanı, üçüncü geçişte son üç elemanı kontrol etmek gereksizdir.
+
+#### Bubble Sort Time and Space Complexity
+
+- Worst-case time complexity: O(n²)
+- Average time complexity: O(n²)
+- Best-case time complexity: O(n) (dizi zaten sıralanmış ise)
+
+#### NOT :  Hafızadaki ihtiyacına bakıldığında ise mevcut veri kadar yer tutması yeterlidir. Bu durumda hafıza karmaşıklığı O(n) olarak hesaplanabilir.
+
+Worst case için N elemanlı bir dizi için  N kadar adım olacak ve her adımda da 1 azalarak gidecek.Dolayısıyla  1 'den N 'e kadar olan sayıların toplamı şeklinde adım  gerekecektir. Bu da n.(n+1)/2 dir. Yani O(N^2) olacaktır.
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/2d5249f6-ebe5-4e62-a821-01a87a08bbdb)
+
+#### Complexity Analysis
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/a4136ed0-f884-483c-9d40-a62cfe2abfd9)
+
+
+#### NOT: Insertion sortdaki fark karşılaştırıp kaydıra kaydıra başa kadar iniyorduk.Burada ise komşu komşu kaydırıyoruz.Sırasısz ise yer değiştiriyoruz.
+
+- Selection Sort :  Tüm diziyi tarıyordu başa koyuyordu, tüm diziyi tarıyordu başa koyuyordu.
+
+- Insertion Sort:  Bakıyordu, karşılaştırıyordu eğer küçükse küçük olanı karşılaştıra karşılaştıra , kaydıra kaydıra aşagı indiriyordu.
+  
+- Bubble Sort: 	- Bubble sortdaki fark büyüğü alıp en sona oturtuyor.Diğerlerindeki fark ise kaydıra kaydıra küçükleri başa çekiyor. N^2 mertebesinde bir algoritmadır.
+
+![image](https://github.com/SametKaanKskn/Time-Complexity-Space-Complexity/assets/111184050/ef75e5fb-572b-43c3-8a5a-7ecb4e7caaa8)
+
+Burada sıralı dizinin gelmesi swap operasyonunu azaltır fakat bu iki döngü kesinlikle dönecektir. Bu durum için (iyileştirmeden yapılmamış hali) 
+
+- Best case: N^2 
+- Average case: N^2
+- Worst case: N^2
+
+
+#### NOT: Eklenilen kodda  her geçişte bütün diziye bakılmasına gerek yoktur. Çünkü dizinin sonundaki elemanlar zaten yer değiştirmeyecektir.
+
+#### NOT: En kötü durumda (worst case analysis) n^2 olur.Çünkü  her geçişte geçiş sayısı kadar elemana bakılması gerekecektir. Örneğin eleman sayısı n olan bir dizi için k. geçişte n-k elemana bakılacak. Dolayısıyla 0. geçişte n elemana 1. geçişte n-1 elemana son geçişte ise n-n yani 0 elemana bakılır. Bu durumda toplam sayı 1’den n’ya kadar olan sayılrın toplamıdır ve n x (n+1) / 2 elemana bakılması gerekir. Bu durumda O(n2) değeri bulunur (upper bound olduğu için)
 
 
 
